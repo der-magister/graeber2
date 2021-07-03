@@ -20,7 +20,7 @@ cd obj/
 
 obj=$(ls | grep [.][o])
 
-lcc -Wa-l -Wl-m -Wl-j -Wl-yt0x019 -Wl-yo8 -Wm-yn"VERLIES" -o graeber2.gb $obj
+lcc -Wa-l -Wl-m -Wl-j -Wl-yt0x019 -Wl-yo8 -Wm-yn"graeber2" -o graeber2.gb $obj
 
 cd ..
 
