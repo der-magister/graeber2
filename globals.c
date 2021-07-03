@@ -20,3 +20,26 @@
 
 #include "globals.h"
 
+//playervariables
+
+///actual livepoints 
+INT8 v_lifepoints;
+
+///maximal livepoints
+INT8 v_max_lifepoints;
+
+///Value of the amor 
+INT8 v_amorvalue;
+
+BOOLEAN v_pickaxe;
+
+///number of gold
+INT8 v_gold;
+
+///actual dungeon time
+INT8 v_time;
+
+
+
+
+

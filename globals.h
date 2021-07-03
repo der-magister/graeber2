@@ -24,4 +24,23 @@
 #include "/opt/gbdk/include/asm/gbz80/types.h"
 #include "/opt/gbdk/include/gb/gb.h"
 
+///actual livepoints 
+extern INT8 v_lifepoints;
+
+///maximal livepoints
+extern INT8 v_max_lifepoints;
+
+///Value of the amor 
+extern INT8 v_amorvalue;
+
+///number of gold
+extern INT8 v_gold;
+
+///
+extern BOOLEAN v_pickaxe;
+
+
+///actual dungeon time
+extern INT8 v_time;
+
 #endif
