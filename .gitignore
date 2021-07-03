@@ -1,0 +1,12 @@
+graeber2.gb
+*.o
+*.asm
+*.lst
+*.sym
+*.map
+*.swp
+*.ihx
+*.noi
+
+
+
