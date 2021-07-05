@@ -24,23 +24,48 @@
 #include "/opt/gbdk/include/asm/gbz80/types.h"
 #include "/opt/gbdk/include/gb/gb.h"
 
-///actual livepoints 
-extern INT8 v_lifepoints;
+#define BANK_0 0
+#define BANK_2 2
+#define false FALSE
+#define true TRUE
 
-///maximal livepoints
-extern INT8 v_max_lifepoints;
+struct s_inventory {
+	UINT8 food;			///actual food
+	UINT8 max_food;                 ///maximal food
+	UINT8 gold;                   	///actual gold pieces
+	UINT8 max_gold;                 ///maximal gold
+	UINT8 crystals;			///actual crystals
+	UINT8 max_crystals;             ///maximal crystals  
+	UINT8 beer;                     ///actual beer
+	UINT8 max_beer;                 ///maximal beer
 
-///Value of the amor 
-extern INT8 v_amorvalue;
+	BOOLEAN pickaxe;                ///have player the pickaxe - true = yes, false = no
+	BOOLEAN steel_pickaxe;          ///have player the steel pickaxe - true = yes, false = no
+	BOOLEAN workwear;               ///have player the workwear - true = yes, false = no
+	BOOLEAN tabard;                 ///have player the tabard - true = yes, false = no
+	BOOLEAN leather_amor;           ///have player the leather_amor - true = yes, false = no
+	BOOLEAN helmet;                 ///have player the helmet - true = yes, false = no
+	BOOLEAN helmet_with_kandle; 	///have player the helmet with kandle - true = yes, false = no
+	BOOLEAN glove;                  ///have player the glove - true = yes, false = no
 
-///number of gold
-extern INT8 v_gold;
+	BOOLEAN barrel;                 ///have player the barrel - true = yes, false = no
+	BOOLEAN bread_can;		///have player the bread can - true = yes, false = no
+	BOOLEAN oil_canister;           ///have player the oil canister - true = yes, false = no 
 
-///
-extern BOOLEAN v_pickaxe;
+	UINT8 bombs;                     ///actual bombs
+	UINT8 max_bombs;                ///maximal bombs
 
+	UINT8 oil;                      ///actual oil
+	UINT8 max_oil;                  ///maximal oil  
+};
 
-///actual dungeon time
-extern INT8 v_time;
+struct s_player {
+	INT8 lifepoints;		///actual lifepoints    
+	UINT8 max_lifepoints;		///maximal lifepoints
+	UINT8 amorvalue;		///Value of the amor
+	struct s_inventory inventory;   ///values of the inventory
+};
+
+extern struct s_player o_player;
 
 #endif

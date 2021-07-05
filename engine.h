@@ -18,4 +18,13 @@
 //
 //   Contact: projekte@kabelmail.net
 
-extern void p_engine_loadTileset (void) NONBANKED;
+#ifndef _engine_h_
+#define _engine_h_
+
+#include "globals.h"
+
+void p_engine_loadTileset (void) NONBANKED;
+void p_engine_loadSpriteset (void) NONBANKED;
+
+
+#endif

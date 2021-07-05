@@ -18,12 +18,12 @@
 //
 //   Contact: projekte@kabelmail.net
 
+#ifndef _player_h_
+#define _player_h_
+
 #include "globals.h"
-#include "init.h"
 
-void main (void)
-{
-	p_init_stage1 ();
+void p_player_init (void) NONBANKED; 
 
-}
 
+#endif

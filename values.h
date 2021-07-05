@@ -18,12 +18,11 @@
 //
 //   Contact: projekte@kabelmail.net
 
+#ifndef _VALUES_H_
+#define _VALUES_H_
+
 #include "globals.h"
-#include "init.h"
 
-void main (void)
-{
-	p_init_stage1 ();
+extern const UINT8 c_amor_values [4]; 
 
-}
-
+#endif

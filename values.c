@@ -18,12 +18,7 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#include "globals.h"
-#include "init.h"
+#include "values.h"
 
-void main (void)
-{
-	p_init_stage1 ();
-
-}
+const UINT8 c_amor_values [4] = { 0, 1, 2, 3 };
 

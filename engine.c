@@ -18,10 +18,23 @@
 //
 //   Contact: projekte@kabelmail.net
 
+#include "engine.h"
+
+#include "data/tilesets/font-81-127.h"
+#include "data/tilesets/maintiles_81-0.h"
+#include "data/spritesets/spriteset.h"
+
 void p_engine_loadTileset (void) NONBANKED
 {
-	SWITCH_ROM_MBC5 (2);
+	SWITCH_ROM_MBC5 (BANK_2);
 	set_bkg_data (81, 127, font);
 	set_bkg_data (0, 80, maintiles);
-        SWITCH_ROM_MBC5 (l_bnk);
+        SWITCH_ROM_MBC5 (BANK_0);
+}
+
+void p_engine_loadSpriteset (void) NONBANKED
+{
+	SWITCH_ROM_MBC5 (BANK_2);
+	set_sprite_data (0, 127, sprites);
+	SWITCH_ROM_MBC5 (BANK_0);
 }

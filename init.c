@@ -5,9 +5,9 @@
 //   This program is free software; you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License As published by
 //   the Free Software Foundation; either version 2 of the License, or
-//   (at your option) any later version.
+//   (at your option) any later version. ();
 //
-//   This program is distributed in the hope that it will be useful,
+//   This program is distributed in the hop that it will be useful,
 //   but WITHOUT ANY WARRANTY; without even the implied warranty of
 //   MERCHANTABILITY Or FITNESS For A PARTICULAR PURPOSE.  See the
 //   GNU General Public License For more details.
@@ -18,12 +18,14 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#include "globals.h"
 #include "init.h"
+#include "engine.h"
+#include "player.h"
 
-void main (void)
+void p_init_stage1 (void) NONBANKED
 {
-	p_init_stage1 ();
-
+	p_engine_loadTileset ();
+	p_engine_loadSpriteset ();
+	
 }
 
