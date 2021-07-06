@@ -20,5 +20,6 @@
 
 #include "values.h"
 
-const UINT8 c_amor_values [4] = { 0, 1, 2, 3 };
+///amor value of workwear, tabard, leather amour, helmet (incl. with kandle)
+const UINT8 c_amor_values [5] = { 0, 1, 2, 3, 1 };
 

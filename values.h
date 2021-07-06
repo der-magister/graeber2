@@ -23,6 +23,6 @@
 
 #include "globals.h"
 
-extern const UINT8 c_amor_values [4]; 
+extern const UINT8 c_amor_values [5];
 
 #endif

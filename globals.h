@@ -64,6 +64,9 @@ struct s_player {
 	UINT8 max_lifepoints;		///maximal lifepoints
 	UINT8 amorvalue;		///Value of the amor
 	struct s_inventory inventory;   ///values of the inventory
+	UINT8 xk;                       ///XK-coordinate on the screen
+	UINT8 yk;                       ///YK-coordinate on the screen
+	UINT8 mk;			///Map-coordinate
 };
 
 extern struct s_player o_player;
