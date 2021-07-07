@@ -4,7 +4,9 @@
 #!/bin/bash
 
 #delete old files
-rm -rf obj/*
+rm -rf obj
+
+mkdir obj
 
 date
 
