@@ -24,7 +24,7 @@
 struct s_player o_player;
 
 ///actual dungeon time
-UINT8 v_time;
+uint8_t v_i;
 
 
 

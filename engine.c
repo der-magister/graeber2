@@ -24,7 +24,10 @@
 #include "data/tilesets/maintiles_81-0.h"
 #include "data/spritesets/spriteset.h"
 
-void p_engine_loadTileset (void) NONBANKED
+struct s_engine o_engine;
+
+///load the game tileset
+void p_engine_loadTileset (void) __nonbanked
 {
 	SWITCH_ROM_MBC5 (BANK_2);
 	set_bkg_data (81, 127, font);
@@ -32,9 +35,32 @@ void p_engine_loadTileset (void) NONBANKED
         SWITCH_ROM_MBC5 (BANK_0);
 }
 
-void p_engine_loadSpriteset (void) NONBANKED
+///load the game sprite set
+void p_engine_loadSpriteset (void) __nonbanked
 {
 	SWITCH_ROM_MBC5 (BANK_2);
 	set_sprite_data (0, 127, sprites);
 	SWITCH_ROM_MBC5 (BANK_0);
+}
+
+void p_engine_load_map (unsigned char l_lvldat [252], uint8_t l_databank, uint8_t l_curbank) __nonbanked
+{
+	DISPLAY_OFF;
+	SWITCH_ROM_MBC5 (l_databank);
+
+	for (v_i = 0; v_i != 253; ++v_i) o_engine.v_leveldata [v_i] = l_lvldat [v_i];
+
+	SWITCH_ROM_MBC5 (l_curbank);
+	DISPLAY_ON;
+}
+
+///calculate the cell on the screen
+uint8_t p_engine_calcMap (uint8_t l_xk, uint8_t l_yk) __nonbanked
+{
+        return ((l_xk - 16) / 8) + 18 * ((l_yk - 24) / 8);
+}
+
+void p_engine_init (void) __nonbanked
+{
+	o_engine.v_movetimer = 0;
 }

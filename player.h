@@ -23,7 +23,10 @@
 
 #include "globals.h"
 
-void p_player_init (void) NONBANKED; 
-
+void p_player_init (void) __nonbanked;
+void p_player_move_up (void) __nonbanked; 
+void p_player_move_down (void) __nonbanked;
+void p_player_move_left (void) __nonbanked;
+void p_player_move_right (void) __nonbanked;   
 
 #endif

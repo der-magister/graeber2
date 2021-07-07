@@ -18,31 +18,11 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#include "globals.h"
-#include "init.h"
-#include "player.h"
-#include "engine.h"
+//own general defintions for gameboy dev
 
-void main (void)
-{
-	p_init_stage1 ();
-
-	//gameloop
-	while (1)
-	{
-		if (o_engine.v_movetimer == 6) {
-			if ((joypad () & J_UP)) p_player_move_up ();
-			else if ((joypad () & J_DOWN)) p_player_move_down ();
-			else if ((joypad () & J_LEFT)) p_player_move_left ();
-                        else if ((joypad () & J_RIGHT)) p_player_move_right ();
-
-			o_engine.v_movetimer = 0;
-		}
-
-		++o_engine.v_movetimer;
-
-		wait_vbl_done ();
-	}
-
-}
-
+#define BANK_0 0
+#define BANK_2 2
+#define BANK_5 5
+#define bool BOOLEAN
+#define false FALSE
+#define true TRUE

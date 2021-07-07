@@ -22,10 +22,20 @@
 #include "engine.h"
 #include "player.h"
 
-void p_init_stage1 (void) NONBANKED
+#include "data/level/devlevel.h"
+
+void p_init_stage1 (void) __nonbanked
 {
+	SHOW_SPRITES;
+	SHOW_BKG;
 	p_engine_loadTileset ();
 	p_engine_loadSpriteset ();
+
+	p_engine_init ();
+	p_player_init ();
+
+	p_engine_load_map (devlevel, BANK_5, BANK_0);
+	set_bkg_tiles (1, 1, 18, 14, o_engine.v_leveldata);
 	
 }
 

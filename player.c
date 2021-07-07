@@ -20,12 +20,13 @@
 
 #include "player.h"
 #include "values.h"
+#include "engine.h"
 
 
 ///calculate the amor value
-UINT8 p_player_calc_amor (void) NONBANKED
+UINT8 p_player_calc_amor (void) __nonbanked
 {
-	UINT8 l_value;
+	static UINT8 l_value;
 
 	l_value = c_amor_values [0];
 
@@ -40,7 +41,7 @@ UINT8 p_player_calc_amor (void) NONBANKED
 }
 
 ///init basic stats
-void p_player_init_basic_stats (void) NONBANKED
+void p_player_init_basic_stats (void) __nonbanked
 {	
 	o_player.lifepoints = 3;
 	o_player.max_lifepoints = 3;
@@ -48,7 +49,7 @@ void p_player_init_basic_stats (void) NONBANKED
 }	
 
 ///init inventory
-void p_player_init_inventory (void) NONBANKED
+void p_player_init_inventory (void) __nonbanked
 {
 	o_player.inventory.food = 1;
 	o_player.inventory.max_food = 6;
@@ -78,8 +79,60 @@ void p_player_init_inventory (void) NONBANKED
 	o_player.inventory.max_oil = 5;
 }
 
-void p_player_init (void) NONBANKED
+///init other player values
+void p_player_init_others (void) __nonbanked
+{
+	o_player.xk = 0;
+	o_player.yk = 0;
+	o_player.mk = p_engine_calcMap (o_player.xk, o_player.yk);
+}
+
+///set player sprite
+void p_player_set_sprite_nr (uint8_t l_nr) __nonbanked
+{
+	set_sprite_tile (PLAYER_SPRITE_ID, l_nr);
+}
+
+///set player sprite to x and y on the screen
+void p_player_set_sprite_xy (uint8_t l_xk, uint8_t l_yk) __nonbanked
+{
+	o_player.xk = l_xk;
+	o_player.yk = l_yk;
+	o_player.mk = p_engine_calcMap (l_xk, l_yk);
+	move_sprite (PLAYER_SPRITE_ID, l_xk, l_yk);
+} 
+
+///player main init
+void p_player_init (void) __nonbanked
 {
 	p_player_init_basic_stats ();
 	p_player_init_inventory ();
+	p_player_init_others ();
+	p_player_set_sprite_nr (0);
+	p_player_set_sprite_xy (40, 112);
 }
+
+void p_player_move_up (void) __nonbanked
+{
+	o_player.yk -= 8; o_player.direction = UP;
+	p_player_set_sprite_xy (o_player.xk, o_player.yk);
+}
+
+void p_player_move_down (void) __nonbanked
+{
+	o_player.yk += 8; o_player.direction = DOWN;
+	p_player_set_sprite_xy (o_player.xk, o_player.yk);	
+}
+
+void p_player_move_left (void)  __nonbanked
+{
+	o_player.xk -= 8; o_player.direction = LEFT;
+	p_player_set_sprite_xy (o_player.xk, o_player.yk);
+}
+
+void p_player_move_right (void)  __nonbanked
+{
+	o_player.xk += 8; o_player.direction = RIGHT;
+	p_player_set_sprite_xy (o_player.xk, o_player.yk);
+}
+

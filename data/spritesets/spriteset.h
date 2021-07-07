@@ -1,6 +1,6 @@
 /*
 
- SPRITESSET.H
+ SPRITESET.H
 
  Include File.
 
@@ -22,8 +22,8 @@
 
 */
 
-#ifndef __spritesset_h_INCLUDE
-#define __spritesset_h_INCLUDE
+#ifndef __spriteset_h_INCLUDE
+#define __spriteset_h_INCLUDE
 
 /* Bank of tiles. */
 #define spritesBank 0
@@ -32,4 +32,4 @@ extern const unsigned char sprites[];
 
 #endif
 
-/* End of SPRITESSET.H */
+/* End of SPRITESET.H */
