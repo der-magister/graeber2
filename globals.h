@@ -72,6 +72,7 @@ struct s_player {
 	uint8_t yk;                     ///YK-coordinate on the screen
 	uint8_t mk;			///map-coordinates
 	uint8_t direction;		///movement direction 
+	bool walk;			///can player move?
 };
 
 extern struct s_player o_player;	///player "object"

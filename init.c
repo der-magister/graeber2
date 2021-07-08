@@ -34,7 +34,7 @@ void p_init_stage1 (void) __nonbanked
 	p_engine_init ();
 	p_player_init ();
 
-	p_engine_load_map (devlevel, BANK_5, BANK_0);
+	p_engine_load_map (devlevel, BANK_5, _current_bank);
 	set_bkg_tiles (1, 1, 18, 14, o_engine.v_leveldata);
 	
 }

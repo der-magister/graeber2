@@ -19,6 +19,7 @@
 //   Contact: projekte@kabelmail.net
 
 #include "engine.h"
+#include <stdio.h>
 
 #include "data/tilesets/font-81-127.h"
 #include "data/tilesets/maintiles_81-0.h"
@@ -63,4 +64,11 @@ uint8_t p_engine_calcMap (uint8_t l_xk, uint8_t l_yk) __nonbanked
 void p_engine_init (void) __nonbanked
 {
 	o_engine.v_movetimer = 0;
+}
+
+unsigned char p_engine_get_tile (uint8_t l_mk) __nonbanked
+{
+	//printf ("wert: %u", o_engine.v_leveldata [l_mk]);
+
+	return (o_engine.v_leveldata [l_mk]);
 }

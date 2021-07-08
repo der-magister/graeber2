@@ -21,5 +21,10 @@
 #include "values.h"
 
 ///amor value of workwear, tabard, leather amour, helmet (incl. with kandle)
-const UINT8 c_amor_values [5] = { 0, 1, 2, 3, 1 };
+const uint8_t c_amor_values [5] = { 0, 1, 2, 3, 1 };
+
+
+///colission tiles values for the player
+const unsigned char c_collision_values_player [11] = { 2, 3, 4, 5, 6, 7, 10, 11, 12, 13 };
+
 

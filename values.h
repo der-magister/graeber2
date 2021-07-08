@@ -23,6 +23,7 @@
 
 #include "globals.h"
 
-extern const UINT8 c_amor_values [5];
+extern const uint8_t c_amor_values [5];
+extern const unsigned char c_collision_values_player [11];
 
 #endif

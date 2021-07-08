@@ -19,9 +19,10 @@
 //   Contact: projekte@kabelmail.net
 
 #include "player.h"
-#include "values.h"
 #include "engine.h"
+#include "values.h"
 
+#include <stdio.h>
 
 ///calculate the amor value
 UINT8 p_player_calc_amor (void) __nonbanked
@@ -100,6 +101,7 @@ void p_player_set_sprite_xy (uint8_t l_xk, uint8_t l_yk) __nonbanked
 	o_player.yk = l_yk;
 	o_player.mk = p_engine_calcMap (l_xk, l_yk);
 	move_sprite (PLAYER_SPRITE_ID, l_xk, l_yk);
+	//printf ("mk: %u", o_player.mk);
 } 
 
 ///player main init
@@ -112,27 +114,79 @@ void p_player_init (void) __nonbanked
 	p_player_set_sprite_xy (40, 112);
 }
 
+bool p_player_collision_check (void) __nonbanked
+{
+	//printf ("mk: %u", o_player.mk - 20);
+	//printf ("vtile: %u", o_engine.v_tile);
+
+	if (o_player.direction == UP) {
+		o_engine.v_tile = p_engine_get_tile (o_player.mk - 18);
+	}
+	else if (o_player.direction == DOWN) {
+		o_engine.v_tile = p_engine_get_tile (o_player.mk + 18);	
+	}
+	else if (o_player.direction == LEFT) {
+		o_engine.v_tile = p_engine_get_tile (o_player.mk - 1);	
+	}
+	else if (o_player.direction == RIGHT) {
+		o_engine.v_tile = p_engine_get_tile (o_player.mk + 1);	
+	}
+
+
+	for (v_i = 0; v_i != sizeof (c_collision_values_player) + 1; ++v_i) {
+		SWITCH_ROM_MBC5 (BANK_4);
+
+		if (c_collision_values_player [v_i] == o_engine.v_tile) return false;
+
+		SWITCH_ROM_MBC5 (BANK_0);
+	}	
+	return true;
+}
+
 void p_player_move_up (void) __nonbanked
 {
-	o_player.yk -= 8; o_player.direction = UP;
-	p_player_set_sprite_xy (o_player.xk, o_player.yk);
+	o_player.direction = UP;
+
+	o_player.walk = p_player_collision_check ();
+
+	if (o_player.walk == true) {
+		o_player.yk -= 8; 
+		p_player_set_sprite_xy (o_player.xk, o_player.yk);
+	}
 }
 
 void p_player_move_down (void) __nonbanked
 {
-	o_player.yk += 8; o_player.direction = DOWN;
-	p_player_set_sprite_xy (o_player.xk, o_player.yk);	
+	o_player.direction = DOWN;
+
+	o_player.walk = p_player_collision_check ();
+
+	if (o_player.walk == true) {
+		o_player.yk += 8; 
+		p_player_set_sprite_xy (o_player.xk, o_player.yk);
+	}
 }
 
 void p_player_move_left (void)  __nonbanked
 {
-	o_player.xk -= 8; o_player.direction = LEFT;
-	p_player_set_sprite_xy (o_player.xk, o_player.yk);
+	o_player.direction = LEFT;
+
+	o_player.walk = p_player_collision_check ();
+
+	if (o_player.walk == true) {
+		o_player.xk -= 8; o_player.direction = LEFT;
+		p_player_set_sprite_xy (o_player.xk, o_player.yk);
+	}
 }
 
 void p_player_move_right (void)  __nonbanked
 {
-	o_player.xk += 8; o_player.direction = RIGHT;
-	p_player_set_sprite_xy (o_player.xk, o_player.yk);
-}
+	o_player.direction = RIGHT;
 
+	o_player.walk = p_player_collision_check ();
+
+	if (o_player.walk == true) {
+		o_player.xk += 8;
+		p_player_set_sprite_xy (o_player.xk, o_player.yk);
+	}
+}
