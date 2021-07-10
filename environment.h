@@ -30,8 +30,11 @@
 #define TILE_BLACK_STONE 5
 #define TILE_BLACK_STONE_PHASE1 6
 #define TILE_BLACK_STONE_PHASE2 7
+#define TILE_GOLD 74
+#define TILE_CRYSTAL 70 
+#define TILE_BEER 75
 
-
-extern void p_environment_get_ev (void) __banked;
+void p_environment_get_ev (void) __banked;
+void p_environment_collect_item (void) __banked;
 
 #endif

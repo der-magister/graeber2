@@ -60,3 +60,40 @@ void p_environment_get_ev (void) __banked
 	else if (o_engine.v_tile [1] == TILE_BLACK_STONE_PHASE1)  p_environment_changes (TILE_BLACK_STONE_PHASE2);
 	else if (o_engine.v_tile [1] == TILE_BLACK_STONE_PHASE2)  p_environment_changes (TILE_PATH);
 }
+
+///clear screen from collected item
+void p_environment_clean_item (void) __banked
+{
+	o_engine.v_tile [0] = TILE_PATH;
+	o_engine.v_leveldata [o_player.mk] = TILE_PATH;
+	set_bkg_tiles (o_player.xk / 8 - 1, o_player.yk / 8 - 2, 1, 1, o_engine.v_tile);
+}
+
+///collect gold 
+void p_environment_collect_gold (void) __banked
+{
+	o_player.inventory.gold += 1;
+	p_environment_clean_item ();
+}
+
+
+void p_environment_collect_crystals (void) __banked
+{
+	o_player.inventory.crystals += 1;
+	p_environment_clean_item ();
+}
+
+void p_environment_collect_beer (void) __banked
+{
+	o_player.lifepoints += 3;
+	p_environment_clean_item ();
+}
+
+void p_environment_collect_item (void) __banked
+{
+	o_engine.v_tile  [1] = p_engine_get_tile (o_player.mk);
+
+	if (o_engine.v_tile [1] == TILE_GOLD) p_environment_collect_gold ();
+	else if (o_engine.v_tile [1] == TILE_CRYSTAL) p_environment_collect_crystals ();
+	else if (o_engine.v_tile [1] == TILE_BEER) p_environment_collect_crystals ();
+}

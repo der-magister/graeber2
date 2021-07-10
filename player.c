@@ -187,6 +187,7 @@ void p_player_move_up (void) __nonbanked
 	if (o_player.walk == true) {
 		o_player.yk -= 8; 
 		p_player_set_sprite_xy (o_player.xk, o_player.yk);
+		p_environment_collect_item ();
 	}
 }
 
@@ -200,6 +201,7 @@ void p_player_move_down (void) __nonbanked
 	if (o_player.walk == true) {
 		o_player.yk += 8; 
 		p_player_set_sprite_xy (o_player.xk, o_player.yk);
+		p_environment_collect_item ();
 	}
 }
 
@@ -213,6 +215,7 @@ void p_player_move_left (void)  __nonbanked
 	if (o_player.walk == true) {
 		o_player.xk -= 8; o_player.direction = LEFT;
 		p_player_set_sprite_xy (o_player.xk, o_player.yk);
+		p_environment_collect_item ();
 	}
 }
 
@@ -226,6 +229,7 @@ void p_player_move_right (void)  __nonbanked
 	if (o_player.walk == true) {
 		o_player.xk += 8;
 		p_player_set_sprite_xy (o_player.xk, o_player.yk);
+		p_environment_collect_item ();
 	}
 }
 
@@ -240,7 +244,6 @@ void p_player_attack (void) __nonbanked
 		p_environment_get_ev ();
 	}
 }
-
 
 /*void p_player_hide_weapon_sprite (void) __nonbanked
 {
