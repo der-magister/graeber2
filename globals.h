@@ -42,6 +42,8 @@ struct s_inventory {
 	uint8_t max_crystals;           ///maximal crystals  
 	uint8_t beer;                   ///actual beer
 	uint8_t max_beer;               ///maximal beer
+	uint8_t v_keys;                  ///acutal keys
+	uint8_t v_max_keys;              ///maximal keys
 
 	bool pickaxe;                   ///have player the pickaxe - true = yes, false = no
 	bool steel_pickaxe;          	///have player the steel pickaxe - true = yes, false = no
@@ -66,7 +68,7 @@ struct s_inventory {
 ///player struct
 struct s_player {
 	int8_t lifepoints;		///actual lifepoints    
-	uint8_t max_lifepoints;		///maximal lifepoints
+	int8_t max_lifepoints;		///maximal lifepoints
 	uint8_t amorvalue;		///value of the amor
 	struct s_inventory inventory;   ///values of the inventory
 	uint8_t xk;                     ///XK-coordinate on the screen
@@ -82,6 +84,7 @@ extern struct s_player o_player;	///player "object"
 
 
 extern uint8_t v_i;
-extern volatile uint8_t v_attacktimer;
+extern uint8_t v_attacktimer;
+extern uint8_t v_lvl;
 
 #endif

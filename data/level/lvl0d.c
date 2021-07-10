@@ -1,6 +1,6 @@
 /*
 
- DEVLEVEL.C
+ LVL0D.C
 
  Map Source File.
 
@@ -18,11 +18,11 @@
 
 */
 
-#define devlevelWidth 18
-#define devlevelHeight 14
-#define devlevelBank 0
+#define lvl0dWidth 18
+#define lvl0dHeight 14
+#define lvl0dBank 0
 
-const unsigned char devlevel[] =
+const unsigned char lvl0d[] =
 {
   0x15,0x15,0x15,0x15,0x14,0x15,0x15,0x15,0x0E,0x15,
   0x15,0x15,0x15,0x14,0x15,0x15,0x15,0x15,0x15,0x13,
@@ -52,4 +52,4 @@ const unsigned char devlevel[] =
   0x15,0x15
 };
 
-/* End of DEVLEVEL.C */
+/* End of LVL0D.C */

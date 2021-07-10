@@ -20,10 +20,16 @@
 
 #include "environment.h"
 #include "engine.h"
-#include <gb/bgb_emu.h>
 
 #include <stdio.h>
 
+const uint8_t c_switches_values [2][2] = {
+						{ 0, 0 },
+						{14, 5 }
+
+};
+
+///changes after an event
 void p_environment_changes (unsigned char l_tile) __banked
 {
 	o_engine.v_tile [0] = l_tile;
@@ -46,6 +52,22 @@ void p_environment_changes (unsigned char l_tile) __banked
 	}
 }
 
+///
+void p_environment_use_switch (void) __banked
+{
+
+	p_environment_changes (TILE_SWITCH_ON);
+	//o_engine.v_tile [0] = TILE_DOOR_OPEN;
+	//set_bkg_tiles (c_switches_values [v_lvl][0] + 1, c_switches_values [v_lvl][1] + 1 , 1, 1, o_engine.v_tile);
+	p_engine_set_tile (c_switches_values [v_lvl][0], c_switches_values [v_lvl][1], TILE_DOOR_OPEN);
+}
+
+void p_environment_use_chest (void) __banked
+{
+	p_environment_changes (TILE_OPEN_CHEST);
+}
+
+///trigger an event 
 void p_environment_get_ev (void) __banked
 {
 	if (o_player.direction == UP) o_engine.v_tile [1] = p_engine_get_tile (o_player.mk - 18);
@@ -59,6 +81,8 @@ void p_environment_get_ev (void) __banked
 	else if (o_engine.v_tile [1] == TILE_BLACK_STONE)  p_environment_changes (TILE_BLACK_STONE_PHASE1);
 	else if (o_engine.v_tile [1] == TILE_BLACK_STONE_PHASE1)  p_environment_changes (TILE_BLACK_STONE_PHASE2);
 	else if (o_engine.v_tile [1] == TILE_BLACK_STONE_PHASE2)  p_environment_changes (TILE_PATH);
+	else if (o_engine.v_tile [1] == TILE_SWITCH_OFF)  p_environment_use_switch ();
+	else if (o_engine.v_tile [1] == TILE_CHEST) p_environment_use_chest ();
 }
 
 ///clear screen from collected item
@@ -72,20 +96,46 @@ void p_environment_clean_item (void) __banked
 ///collect gold 
 void p_environment_collect_gold (void) __banked
 {
-	o_player.inventory.gold += 1;
-	p_environment_clean_item ();
+	if (o_player.inventory.gold != 255) {
+		o_player.inventory.gold += 1;
+		p_environment_clean_item ();
+	}
 }
 
-
-void p_environment_collect_crystals (void) __banked
+///collect crystal
+void p_environment_collect_crystal (void) __banked
 {
-	o_player.inventory.crystals += 1;
-	p_environment_clean_item ();
+	if (o_player.inventory.crystals != 255) {
+		o_player.inventory.crystals += 1;
+		p_environment_clean_item ();
+	}
 }
 
+
+///collect beer and increase lifepoint + 3
 void p_environment_collect_beer (void) __banked
 {
-	o_player.lifepoints += 3;
+	if (o_player.lifepoints != o_player.max_lifepoints - 3) {
+		o_player.lifepoints += 3;
+	}
+	else {
+		o_player.lifepoints = o_player.max_lifepoints;
+	}
+	p_environment_clean_item ();
+}
+
+///collect key
+void p_environment_collect_key (void) __banked
+{
+	if (o_player.inventory.v_keys != o_player.inventory.v_max_keys) {
+		o_player.inventory.v_keys += 1;
+		p_environment_clean_item ();
+	}	
+}
+
+///collect big clock and increase dungeontime + 50
+void p_environment_collect_big_clock (void) __banked
+{
 	p_environment_clean_item ();
 }
 
@@ -94,6 +144,8 @@ void p_environment_collect_item (void) __banked
 	o_engine.v_tile  [1] = p_engine_get_tile (o_player.mk);
 
 	if (o_engine.v_tile [1] == TILE_GOLD) p_environment_collect_gold ();
-	else if (o_engine.v_tile [1] == TILE_CRYSTAL) p_environment_collect_crystals ();
-	else if (o_engine.v_tile [1] == TILE_BEER) p_environment_collect_crystals ();
+	else if (o_engine.v_tile [1] == TILE_CRYSTAL) p_environment_collect_crystal ();
+	else if (o_engine.v_tile [1] == TILE_BEER) p_environment_collect_beer ();
+	else if (o_engine.v_tile [1] == TILE_KEY) p_environment_collect_key ();
+	else if (o_engine.v_tile [1] == TILE_BIG_CLOCK) p_environment_collect_big_clock ();
 }

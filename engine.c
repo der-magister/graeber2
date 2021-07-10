@@ -72,3 +72,10 @@ unsigned char p_engine_get_tile (uint8_t l_mk) __nonbanked
 
 	return (o_engine.v_leveldata [l_mk]);
 }
+
+void p_engine_set_tile (UINT8 l_xk, UINT8 l_yk, unsigned char l_tile) __nonbanked
+{
+	o_engine.v_tile [0] = l_tile;
+        set_bkg_tiles (l_xk + 1, l_yk + 1, 1, 1, o_engine.v_tile);
+        o_engine.v_leveldata [l_xk + 18 * l_yk] = o_engine.v_tile [0];
+}

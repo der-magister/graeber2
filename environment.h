@@ -33,6 +33,13 @@
 #define TILE_GOLD 74
 #define TILE_CRYSTAL 70 
 #define TILE_BEER 75
+#define TILE_SWITCH_OFF 15
+#define TILE_SWITCH_ON 16
+#define TILE_DOOR_OPEN 9
+#define TILE_KEY 72
+#define TILE_CHEST 11
+#define TILE_OPEN_CHEST 12
+#define TILE_BIG_CLOCK 71
 
 void p_environment_get_ev (void) __banked;
 void p_environment_collect_item (void) __banked;

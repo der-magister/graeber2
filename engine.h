@@ -41,8 +41,6 @@ void p_engine_load_map (unsigned char l_lvldat [252], uint8_t l_databank, uint8_
 uint8_t p_engine_calc_map (uint8_t l_xk, uint8_t l_yk) __nonbanked;
 void p_engine_init (void) __nonbanked;
 unsigned char p_engine_get_tile (uint8_t l_mk) __nonbanked;
-
-
-
+void p_engine_set_tile (UINT8 l_xk, UINT8 l_yk, unsigned char l_tile) __nonbanked;
 
 #endif

@@ -24,6 +24,7 @@
 #define BANK_2 2
 #define BANK_4 4
 #define BANK_5 5
+#define BANK_6 6
 #define bool BOOLEAN
 #define false FALSE
 #define true TRUE

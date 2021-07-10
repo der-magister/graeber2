@@ -22,7 +22,7 @@
 #include "engine.h"
 #include "player.h"
 
-#include "data/level/devlevel.h"
+#include "data/level/lvldatmine-entrance.h"
 
 void p_init_stage1 (void) __nonbanked
 {
@@ -34,11 +34,13 @@ void p_init_stage1 (void) __nonbanked
 	p_engine_init ();
 	p_player_init ();
 
-	p_engine_load_map (devlevel, BANK_5, _current_bank);
+	p_engine_load_map (lvl0a, BANK_5, _current_bank);
 	set_bkg_tiles (1, 1, 18, 14, o_engine.v_leveldata);
 
 	//tmp
 	o_player.inventory.pickaxe = true;
 	p_player_set_weapon_sprite ();
+
+	v_lvl = 1;
 }
 
