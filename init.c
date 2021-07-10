@@ -36,6 +36,9 @@ void p_init_stage1 (void) __nonbanked
 
 	p_engine_load_map (devlevel, BANK_5, _current_bank);
 	set_bkg_tiles (1, 1, 18, 14, o_engine.v_leveldata);
-	
+
+	//tmp
+	o_player.inventory.pickaxe = true;
+	p_player_set_weapon_sprite ();
 }
 

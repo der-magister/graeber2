@@ -26,6 +26,7 @@
 #include "defines.h"
 
 #define PLAYER_SPRITE_ID 0
+#define PLAYER_WEAPON_SPRITE_ID 1
 #define UP 1
 #define DOWN 2
 #define LEFT 3
@@ -73,9 +74,14 @@ struct s_player {
 	uint8_t mk;			///map-coordinates
 	uint8_t direction;		///movement direction 
 	bool walk;			///can player move?
+	uint8_t v_attacktimer;		///timer for showing the pickaxe on the screen
+	bool v_attack;
 };
 
 extern struct s_player o_player;	///player "object"
 
+
 extern uint8_t v_i;
+extern volatile uint8_t v_attacktimer;
+
 #endif

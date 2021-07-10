@@ -18,18 +18,20 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#ifndef _player_h_
-#define _player_h_
+#ifndef _ENVIRONMENT_H_
+#define _ENVIRONMENT_H_
 
 #include "globals.h"
 
-void p_player_init (void) __nonbanked;
-void p_player_move_up (void) __nonbanked; 
-void p_player_move_down (void) __nonbanked;
-void p_player_move_left (void) __nonbanked;
-void p_player_move_right (void) __nonbanked;
-void p_player_set_weapon_sprite (void) __nonbanked;
-void p_player_attack (void) __nonbanked;
-//void p_player_hide_weapon_sprite (void) __nonbanked;
+#define TILE_PATH 1
+#define TILE_SAND 2
+#define TILE_STONE 3
+#define TILE_STONE_PHASE2 4
+#define TILE_BLACK_STONE 5
+#define TILE_BLACK_STONE_PHASE1 6
+#define TILE_BLACK_STONE_PHASE2 7
+
+
+extern void p_environment_get_ev (void) __banked;
 
 #endif

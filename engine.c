@@ -56,14 +56,14 @@ void p_engine_load_map (unsigned char l_lvldat [252], uint8_t l_databank, uint8_
 }
 
 ///calculate the cell on the screen
-uint8_t p_engine_calcMap (uint8_t l_xk, uint8_t l_yk) __nonbanked
+uint8_t p_engine_calc_map (uint8_t l_xk, uint8_t l_yk) __nonbanked
 {
         return ((l_xk - 16) / 8) + 18 * ((l_yk - 24) / 8);
 }
 
 void p_engine_init (void) __nonbanked
 {
-	o_engine.v_movetimer = 0;
+	o_engine.v_movetimer = 0; o_engine.v_attacktimer = 0;
 }
 
 unsigned char p_engine_get_tile (uint8_t l_mk) __nonbanked

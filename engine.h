@@ -27,7 +27,9 @@ struct s_engine
 {
 	unsigned char v_leveldata [252]; 	///actual level map data
 	uint8_t v_movetimer;			///timer for player movements
-	unsigned char v_tile;                   ///tilenumber of an selected tile
+	unsigned char v_tile [2];               ///tilenumber of an selected tile
+	uint8_t v_attacktimer;     
+	uint8_t v_gamepad;             
 };
 
 extern struct s_engine o_engine;		///"object" engine
@@ -36,7 +38,7 @@ void p_engine_loadTileset (void) __nonbanked;
 void p_engine_loadSpriteset (void) __nonbanked;
 void p_engine_load_map (unsigned char l_lvldat [252], uint8_t l_databank, uint8_t l_curbank) __nonbanked;
 
-uint8_t p_engine_calcMap (uint8_t l_xk, uint8_t l_yk) __nonbanked;
+uint8_t p_engine_calc_map (uint8_t l_xk, uint8_t l_yk) __nonbanked;
 void p_engine_init (void) __nonbanked;
 unsigned char p_engine_get_tile (uint8_t l_mk) __nonbanked;
 

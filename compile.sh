@@ -12,6 +12,9 @@ date
 
 echo "compile..."
 
+#BANK6
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo6 -c -o obj/environment.o environment.c 
+
 #BANK5: level data
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo5 -c -o obj/devlevel.o data/level/devlevel.c
 
