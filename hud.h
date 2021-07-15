@@ -18,14 +18,12 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#include "values.h"
+#ifndef _HUD_H_
+#define _HUD_H_
 
-///amor value of workwear, tabard, leather amour, helmet (incl. with kandle)
-const uint8_t c_amor_values [5] = { 0, 1, 2, 3, 1 };
+#include "globals.h"
 
+void p_hud_show_players_mapK (void) __nonbanked;
+void p_hud_show_value (uint8_t l_value) __nonbanked;
 
-///colission tiles values for the player
-const unsigned char c_collision_values_player [20] = { 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 18, 20, 21, 22, 23, 24, 25, 26, 27 };
-
-
-					  
+#endif

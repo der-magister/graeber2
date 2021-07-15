@@ -22,9 +22,14 @@
 
 #define BANK_0 0
 #define BANK_2 2
+#define BANK_3 3
 #define BANK_4 4
 #define BANK_5 5
 #define BANK_6 6
 #define bool BOOLEAN
 #define false FALSE
 #define true TRUE
+#define LAYER_BKG 0
+#define LAYER_WIN 1
+
+

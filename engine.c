@@ -19,13 +19,13 @@
 //   Contact: projekte@kabelmail.net
 
 #include "engine.h"
-#include <stdio.h>
+#include "player.h"
 
 #include "data/tilesets/font-81-127.h"
 #include "data/tilesets/maintiles_81-0.h"
 #include "data/spritesets/spriteset.h"
 
-struct s_engine o_engine;
+struct s_engine_t o_engine;
 
 ///load the game tileset
 void p_engine_loadTileset (void) __nonbanked
@@ -46,13 +46,11 @@ void p_engine_loadSpriteset (void) __nonbanked
 
 void p_engine_load_map (unsigned char l_lvldat [252], uint8_t l_databank, uint8_t l_curbank) __nonbanked
 {
-	DISPLAY_OFF;
 	SWITCH_ROM_MBC5 (l_databank);
 
 	for (v_i = 0; v_i != 253; ++v_i) o_engine.v_leveldata [v_i] = l_lvldat [v_i];
 
 	SWITCH_ROM_MBC5 (l_curbank);
-	DISPLAY_ON;
 }
 
 ///calculate the cell on the screen
@@ -63,7 +61,7 @@ uint8_t p_engine_calc_map (uint8_t l_xk, uint8_t l_yk) __nonbanked
 
 void p_engine_init (void) __nonbanked
 {
-	o_engine.v_movetimer = 0; o_engine.v_attacktimer = 0;
+	o_engine.v_movetimer = 0;
 }
 
 unsigned char p_engine_get_tile (uint8_t l_mk) __nonbanked
@@ -73,9 +71,22 @@ unsigned char p_engine_get_tile (uint8_t l_mk) __nonbanked
 	return (o_engine.v_leveldata [l_mk]);
 }
 
-void p_engine_set_tile (UINT8 l_xk, UINT8 l_yk, unsigned char l_tile) __nonbanked
+void p_engine_set_tile (uint8_t l_xk, uint8_t l_yk, unsigned char l_tile) __nonbanked
 {
 	o_engine.v_tile [0] = l_tile;
         set_bkg_tiles (l_xk + 1, l_yk + 1, 1, 1, o_engine.v_tile);
         o_engine.v_leveldata [l_xk + 18 * l_yk] = o_engine.v_tile [0];
+}
+
+void p_engine_change_lvl (int8_t l_lvl, uint8_t l_xk, uint8_t l_yk) __nonbanked
+{	
+	DISPLAY_OFF;
+	HIDE_SPRITES;
+        delay (150);
+        v_lvl = l_lvl;
+        set_bkg_tiles (1, 1, 18, 14, o_engine.v_leveldata);
+        p_player_set_sprite_xy (l_xk, l_yk);
+        o_engine.v_movetimer = 5;
+        SHOW_SPRITES;
+        DISPLAY_ON;
 }

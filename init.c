@@ -26,21 +26,25 @@
 
 void p_init_stage1 (void) __nonbanked
 {
+	SPRITES_8x8;
 	SHOW_SPRITES;
 	SHOW_BKG;
+
 	p_engine_loadTileset ();
 	p_engine_loadSpriteset ();
 
 	p_engine_init ();
 	p_player_init ();
 
-	p_engine_load_map (lvl0a, BANK_5, _current_bank);
+	p_engine_load_map (lvl0a, BANK_5, BANK_0);
 	set_bkg_tiles (1, 1, 18, 14, o_engine.v_leveldata);
 
 	//tmp
-	o_player.inventory.pickaxe = true;
 	p_player_set_weapon_sprite ();
+	o_engine.v_movetimer = 0;
 
-	v_lvl = 1;
+	v_lvl = -4;
+
 }
+
 

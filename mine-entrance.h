@@ -18,14 +18,14 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#include "values.h"
+#ifndef _MINE_ENTRANCE_H_
+#define _MINE_ENTRANCE_H_
 
-///amor value of workwear, tabard, leather amour, helmet (incl. with kandle)
-const uint8_t c_amor_values [5] = { 0, 1, 2, 3, 1 };
+#include "globals.h"
 
+void p_lvl0a (void) __banked;
+void p_lvl0b (void) __banked;
+void p_lvl0c (void) __banked;
+void p_lvl0d (void) __banked;
 
-///colission tiles values for the player
-const unsigned char c_collision_values_player [20] = { 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 18, 20, 21, 22, 23, 24, 25, 26, 27 };
-
-
-					  
+#endif

@@ -16,11 +16,13 @@ echo "compile..."
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo6 -c -o obj/environment.o environment.c 
 
 #BANK5: level data
-lcc -Wa-l -Wl-m -Wl-j -Wf-bo5 -c -o obj/devlevel.o data/level/devlevel.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo5 -c -o obj/lvldatmine-entrance.o data/level/lvldatmine-entrance.c
 
 #Bank 4: other values
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo4 -c -o obj/values.o values.c
+
+#Bank3: Level mine entrance
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo3 -c -o obj/mine-entrance.o mine-entrance.c
 
 #Bank 2: tilesets and spritesets
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/font-81-127.o data/tilesets/font-81-127.c
@@ -30,7 +32,9 @@ lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/spriteset.o data/spritesets/spriteset.c
 #Bank 0: main
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/globals.o globals.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/engine.o engine.c
+lcc -Wa-l -Wl-m -Wl-j -c -o obj/hud.o hud.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/player.o player.c
+lcc -Wa-l -Wl-m -Wl-j -c -o obj/lvlstatus.o lvlstatus.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/init.o init.c
 lcc -Wa-l -Wl-m -Wl-j -Wa-l -Wl-m -Wl-j -c -o obj/graeber2.o graeber2.c
 

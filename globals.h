@@ -32,6 +32,7 @@
 #define LEFT 3
 #define RIGHT 4
 
+
 ///inventory struct
 struct s_inventory {
 	uint8_t food;			///actual food
@@ -85,6 +86,6 @@ extern struct s_player o_player;	///player "object"
 
 extern uint8_t v_i;
 extern uint8_t v_attacktimer;
-extern uint8_t v_lvl;
+extern volatile int8_t v_lvl;
 
 #endif

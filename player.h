@@ -31,5 +31,8 @@ void p_player_move_right (void) __nonbanked;
 void p_player_set_weapon_sprite (void) __nonbanked;
 void p_player_attack (void) __nonbanked;
 //void p_player_hide_weapon_sprite (void) __nonbanked;
+void p_player_set_sprite_xy (uint8_t l_xk, uint8_t l_yk) __nonbanked;
+void p_hud_show_players_xk (void) __nonbanked;
+void p_hud_show_players_yk (void) __nonbanked;
 
 #endif

@@ -24,8 +24,6 @@
 #include "globals.h"
 
 extern const uint8_t c_amor_values [5];
-extern const unsigned char c_collision_values_player [11];
-extern const uint8_t c_switches_xk_values [2];
-extern const uint8_t c_switches_yk_values [2];
+extern const unsigned char c_collision_values_player [20];
 
 #endif

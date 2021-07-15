@@ -20,10 +20,9 @@
 
 #include "player.h"
 #include "engine.h"
+#include "hud.h"
 #include "values.h"
 #include "environment.h"
-
-#include <stdio.h>
 
 ///calculate the amor value
 UINT8 p_player_calc_amor (void) __nonbanked
@@ -107,7 +106,10 @@ void p_player_set_sprite_xy (uint8_t l_xk, uint8_t l_yk) __nonbanked
 	o_player.yk = l_yk;
 	o_player.mk = p_engine_calc_map (l_xk, l_yk);
 	move_sprite (PLAYER_SPRITE_ID, l_xk, l_yk);
-	//printf ("mk: %u", o_player.mk);
+	p_hud_show_players_mapK ();
+	p_hud_show_players_xk ();
+	p_hud_show_players_yk ();
+	
 } 
 
 ///set player weapon sprite graphics
@@ -152,9 +154,6 @@ void p_player_init (void) __nonbanked
 ///player collisions check on definied tile list
 bool p_player_collision_check (void) __nonbanked
 {
-	//printf ("mk: %u", o_player.mk - 20);
-	//printf ("vtile: %u", o_engine.v_tile);
-
 	if (o_player.direction == UP) {
 		o_engine.v_tile [1] = p_engine_get_tile (o_player.mk - 18);
 	}
@@ -182,56 +181,64 @@ bool p_player_collision_check (void) __nonbanked
 ///player move to up
 void p_player_move_up (void) __nonbanked
 {
-	o_player.direction = UP;
+	if (o_player.yk != 24) {
+		o_player.direction = UP;
 
-	o_player.walk = p_player_collision_check ();
+		o_player.walk = p_player_collision_check ();
 
-	if (o_player.walk == true) {
-		o_player.yk -= 8; 
-		p_player_set_sprite_xy (o_player.xk, o_player.yk);
-		p_environment_collect_item ();
+		if (o_player.walk == true) {
+			o_player.yk -= 8; 
+			p_player_set_sprite_xy (o_player.xk, o_player.yk);
+			p_environment_collect_item ();
+		}
 	}
 }
 
 ///player move to down
 void p_player_move_down (void) __nonbanked
 {
-	o_player.direction = DOWN;
+	if (o_player.yk != 128) {
+		o_player.direction = DOWN;
 
-	o_player.walk = p_player_collision_check ();
+		o_player.walk = p_player_collision_check ();
 
-	if (o_player.walk == true) {
-		o_player.yk += 8; 
-		p_player_set_sprite_xy (o_player.xk, o_player.yk);
-		p_environment_collect_item ();
+		if (o_player.walk == true) {
+			o_player.yk += 8; 
+			p_player_set_sprite_xy (o_player.xk, o_player.yk);
+			p_environment_collect_item ();
+		}
 	}
 }
 
 ///player move to left
 void p_player_move_left (void)  __nonbanked
 {
-	o_player.direction = LEFT;
+	if (o_player.xk != 16) {
+		o_player.direction = LEFT;
 
-	o_player.walk = p_player_collision_check ();
+		o_player.walk = p_player_collision_check ();
 
-	if (o_player.walk == true) {
-		o_player.xk -= 8; o_player.direction = LEFT;
-		p_player_set_sprite_xy (o_player.xk, o_player.yk);
-		p_environment_collect_item ();
+		if (o_player.walk == true) {
+			o_player.xk -= 8; o_player.direction = LEFT;
+			p_player_set_sprite_xy (o_player.xk, o_player.yk);
+			p_environment_collect_item ();
+		}
 	}
 }
 
 ///player move to right
 void p_player_move_right (void)  __nonbanked
 {
-	o_player.direction = RIGHT;
+	if (o_player.xk != 152) {
+		o_player.direction = RIGHT;
 
-	o_player.walk = p_player_collision_check ();
+		o_player.walk = p_player_collision_check ();
 
-	if (o_player.walk == true) {
-		o_player.xk += 8;
-		p_player_set_sprite_xy (o_player.xk, o_player.yk);
-		p_environment_collect_item ();
+		if (o_player.walk == true) {
+			o_player.xk += 8;
+			p_player_set_sprite_xy (o_player.xk, o_player.yk);
+			p_environment_collect_item ();
+		}
 	}
 }
 
@@ -244,6 +251,9 @@ void p_player_attack (void) __nonbanked
 		p_player_set_weapon_sprite_xk ();
 		v_attacktimer = 0;
 		p_environment_get_ev ();
+	}
+	else {
+		o_player.v_attack = false;
 	}
 }
 

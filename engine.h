@@ -23,16 +23,14 @@
 
 #include "globals.h"
 
-struct s_engine
+struct s_engine_t
 {
 	unsigned char v_leveldata [252]; 	///actual level map data
 	uint8_t v_movetimer;			///timer for player movements
-	unsigned char v_tile [2];               ///tilenumber of an selected tile
-	uint8_t v_attacktimer;     
-	uint8_t v_gamepad;             
+	unsigned char v_tile [2];               ///tilenumber of an selected tile         
 };
 
-extern struct s_engine o_engine;		///"object" engine
+extern struct s_engine_t o_engine;		///"object" engine
 
 void p_engine_loadTileset (void) __nonbanked;
 void p_engine_loadSpriteset (void) __nonbanked;
@@ -41,6 +39,7 @@ void p_engine_load_map (unsigned char l_lvldat [252], uint8_t l_databank, uint8_
 uint8_t p_engine_calc_map (uint8_t l_xk, uint8_t l_yk) __nonbanked;
 void p_engine_init (void) __nonbanked;
 unsigned char p_engine_get_tile (uint8_t l_mk) __nonbanked;
-void p_engine_set_tile (UINT8 l_xk, UINT8 l_yk, unsigned char l_tile) __nonbanked;
+void p_engine_set_tile (uint8_t l_xk, uint8_t l_yk, unsigned char l_tile) __nonbanked;
+void p_engine_change_lvl (int8_t l_lvl, uint8_t l_xk, uint8_t l_yk) __nonbanked;
 
 #endif
