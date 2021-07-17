@@ -1,26 +1,6 @@
-//   Graeber2 - an digger adventure game
-//
-//   Copyright (C) 2021 Heiko Wolf
-//
-//   This program is free software; you can redistribute it and/or modify
-//   it under the terms of the GNU General Public License As published by
-//   the Free Software Foundation; either version 2 of the License, or
-//   (at your option) any later version.
-//
-//   This program is distributed in the hope that it will be useful,
-//   but WITHOUT ANY WARRANTY; without even the implied warranty of
-//   MERCHANTABILITY Or FITNESS For A PARTICULAR PURPOSE.  See the
-//   GNU General Public License For more details.
-//
-//   You should have received a copy of the GNU General Public License along
-//   With this program; if not, write to the Free Software Foundation, Inc.,
-//   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-//
-//   Contact: projekte@kabelmail.net
-
 /*
 
- FONT-81-127.C
+ FONT-79-127.C
 
  Tile Source File.
 
@@ -30,7 +10,7 @@
   Compression          : None.
   Counter              : None.
   Tile size            : 8 x 8
-  Tiles                : 81 to 127
+  Tiles                : 79 to 127
 
   Palette colors       : None.
   SGB Palette          : None.
@@ -45,6 +25,10 @@
 /* Start of tile array. */
 const unsigned char font[] =
 {
+  0x00,0x00,0x00,0x00,0x3E,0x3E,0x3E,0x3E,
+  0x1C,0x1C,0x08,0x08,0x00,0x00,0x00,0x00,
+  0x7F,0x7F,0x63,0x63,0x5D,0x5D,0x5D,0x5D,
+  0x41,0x41,0x5D,0x5D,0x5D,0x5D,0x7F,0x7F,
   0x00,0x00,0x08,0x08,0x08,0x08,0x3E,0x3E,
   0x08,0x08,0x08,0x08,0x00,0x00,0x00,0x00,
   0x00,0x00,0x00,0x00,0x3C,0x3C,0x00,0x00,
@@ -141,4 +125,4 @@ const unsigned char font[] =
   0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
 };
 
-/* End of FONT-81-127.C */
+/* End of FONT-79-127.C */

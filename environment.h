@@ -43,5 +43,6 @@
 
 void p_environment_get_ev (void) __banked;
 void p_environment_collect_item (void) __banked;
+void p_environment_shield (uint8_t l_mk, unsigned char l_txt[]) __banked;
 
 #endif

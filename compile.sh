@@ -12,6 +12,10 @@ date
 
 echo "compile..."
 
+#BANK7: Text routines and text data
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/text.o text.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/shieldtxt.o data/text/shields/shieldtxt.c
+
 #BANK6
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo6 -c -o obj/environment.o environment.c 
 
@@ -25,8 +29,8 @@ lcc -Wa-l -Wl-m -Wl-j -Wf-bo4 -c -o obj/values.o values.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo3 -c -o obj/mine-entrance.o mine-entrance.c
 
 #Bank 2: tilesets and spritesets
-lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/font-81-127.o data/tilesets/font-81-127.c
-lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/maintiles.o data/tilesets/maintiles_81-0.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/font-79-127.o data/tilesets/font-79-127.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/maintiles.o data/tilesets/maintiles_77-0.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/spriteset.o data/spritesets/spriteset.c
 
 #Bank 0: main

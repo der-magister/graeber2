@@ -1,4 +1,3 @@
-//   Graeber2 - an digger adventure game
 //
 //   Copyright (C) 2021 Heiko Wolf
 //
@@ -31,5 +30,3 @@
 #define true TRUE
 #define LAYER_BKG 0
 #define LAYER_WIN 1
-
-

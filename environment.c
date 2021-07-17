@@ -20,8 +20,7 @@
 
 #include "environment.h"
 #include "engine.h"
-
-#include <stdio.h>
+#include "text.h"
 
 const uint8_t c_switches_values [2][2] = {
 						{ 0, 0 },
@@ -112,7 +111,7 @@ void p_environment_collect_crystal (void) __banked
 }
 
 
-///collect beer and increase lifepoint + 3
+///collect beer and increase lifepoints + 3
 void p_environment_collect_beer (void) __banked
 {
 	if (o_player.lifepoints != o_player.max_lifepoints - 3) {
@@ -148,4 +147,11 @@ void p_environment_collect_item (void) __banked
 	else if (o_engine.v_tile [1] == TILE_BEER) p_environment_collect_beer ();
 	else if (o_engine.v_tile [1] == TILE_KEY) p_environment_collect_key ();
 	else if (o_engine.v_tile [1] == TILE_BIG_CLOCK) p_environment_collect_big_clock ();
+}
+
+void  p_environment_shield (uint8_t l_mk, unsigned char l_txt[]) __banked
+{
+	if (l_mk == o_player.mk) {
+		p_set_txt (1, 1, l_txt);
+	}
 }

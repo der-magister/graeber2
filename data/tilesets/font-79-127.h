@@ -1,6 +1,6 @@
 /*
 
- MAINTILES_81-0.H
+ FONT-79-127.H
 
  Include File.
 
@@ -10,7 +10,7 @@
   Compression          : None.
   Counter              : None.
   Tile size            : 8 x 8
-  Tiles                : 0 to 80
+  Tiles                : 79 to 127
 
   Palette colors       : None.
   SGB Palette          : None.
@@ -22,14 +22,14 @@
 
 */
 
-#ifndef __maintiles_81_0_h_INCLUDE
-#define __maintiles_81_0_h_INCLUDE
+#ifndef __font_79_127_h_INCLUDE
+#define __font_79_127_h_INCLUDE
 
 /* Bank of tiles. */
-#define maintilesBank 0
+#define fontBank 0
 /* Start of tile array. */
-extern const unsigned char maintiles[];
+extern const unsigned char font[];
 
 #endif
 
-/* End of MAINTILES_81-0.H */
+/* End of FONT-79-127.H */

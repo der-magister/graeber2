@@ -21,8 +21,10 @@
 #include "mine-entrance.h"
 
 #include "engine.h"
+#include "environment.h"
 
 #include "data/level/lvldatmine-entrance.h"
+#include "data/text/shields/shieldtxt.h"
 
 ///procedure for lvl0a
 void p_lvl0a (void) __banked
@@ -56,6 +58,9 @@ void p_lvl0b (void) __banked
 ///procedure for lvl0c
 void p_lvl0c (void) __banked
 {
+	p_environment_shield (118, forgetxt);
+	p_environment_shield (228, shieldfoodtxt);
+
 	//lvl change
 	if (o_player.mk == 108) {
 		p_engine_load_map (lvl0a, BANK_5, BANK_3);
