@@ -19,10 +19,24 @@
 //   Contact: projekte@kabelmail.net
 
 #include "text.h"
+#include "engine.h"
+#include "player.h"
+
+void p_hide_txt (void) __banked
+{
+	o_engine.v_movetimer = 5;
+	delay (160);
+	HIDE_WIN;
+	p_player_set_sprite_xy (o_player.xk, o_player.yk);
+}
 
 void p_set_txt (uint8_t l_xpos, uint8_t l_ypos, unsigned char l_text []) __banked
 {
+	if (o_player.yk > 104) hide_sprite (PLAYER_SPRITE_ID);
 	move_win (7, 96);
-	set_win_tiles (l_xpos + 1, l_ypos + 1, 18, 4, l_text);
+	set_win_tiles (l_xpos, l_ypos, 18, 4, l_text);
 	SHOW_WIN;
+	delay (160);
+	waitpad (J_A);
+	p_hide_txt ();
 }

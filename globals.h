@@ -85,7 +85,6 @@ extern struct s_player o_player;	///player "object"
 
 
 extern uint8_t v_i;
-extern uint8_t v_attacktimer;
 extern volatile int8_t v_lvl;
 
 #endif

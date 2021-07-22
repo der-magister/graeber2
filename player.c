@@ -249,7 +249,7 @@ void p_player_attack (void) __nonbanked
 
 	if ((o_player.inventory.pickaxe == true) || (o_player.inventory.steel_pickaxe == true)) {
 		p_player_set_weapon_sprite_xk ();
-		v_attacktimer = 0;
+		o_player.v_attacktimer = 0;
 		p_environment_get_ev ();
 	}
 	else {
