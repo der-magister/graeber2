@@ -24,6 +24,8 @@
 #include "environment.h"
 
 #include "data/level/lvldatmine-entrance.h"
+#include "data/level/lvldatfirstcourse.h"
+
 #include "data/text/shields/shieldtxt.h"
 
 ///procedure for lvl0a
@@ -92,5 +94,10 @@ void p_lvl0d (void) __banked
 	if (o_player.mk == 242) {
 		p_engine_load_map (lvl0a, BANK_5, BANK_3);
 		p_engine_change_lvl (-4, o_player.xk, 24);
+	}
+	else if (o_player.mk == 8) {
+		p_engine_load_map (lvl001, BANK_5, BANK_3);
+		p_engine_change_lvl (1, o_player.xk, 128);
+
 	}
 }

@@ -35,7 +35,7 @@ void main (void)
 
 		//p_hud_show_value (o_engine.v_movetimer);
 
-		if (o_engine.v_movetimer == 6) //&& (o_player.v_attack == false)) 
+		if ((o_engine.v_movetimer == 6) && (o_player.v_attack == false)) 
 		{
 			if ((joypad () & J_UP)) p_player_move_up ();
 			else if ((joypad () & J_DOWN)) p_player_move_down ();

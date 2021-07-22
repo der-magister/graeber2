@@ -21,6 +21,8 @@
 #include "lvlstatus.h"
 
 #include "mine-entrance.h"
+#include "first-course.h"
+
 
 void p_lvl_select (void) __nonbanked
 {
@@ -28,4 +30,13 @@ void p_lvl_select (void) __nonbanked
 	else if (v_lvl == -3) p_lvl0b ();
 	else if (v_lvl == -2) p_lvl0c ();
 	else if (v_lvl == -1) p_lvl0d ();
+	else if (v_lvl == 1) p_lvl001 ();
+	else if (v_lvl == 2) p_lvl002 ();
+	else if (v_lvl == 3) p_lvl003 ();
+	else if (v_lvl == 4) p_lvl004 ();
+	else if (v_lvl == 5) p_lvl005 ();
+	else if (v_lvl == 6) p_lvl006 ();
+	else if (v_lvl == 7) p_lvl007 ();
+
+
 }

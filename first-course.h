@@ -18,26 +18,17 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#include "text.h"
-#include "engine.h"
-#include "player.h"
+#ifndef _FIRST_COURSE_H_
+#define _FIRST_COURSE_H_
 
-void p_hide_txt (void) __banked
-{
-	o_engine.v_movetimer = 5;
-	delay (160);
-	HIDE_WIN;
-	p_player_set_sprite_xy (o_player.xk, o_player.yk);
-}
+#include "globals.h"
 
-///display passed text on the win layer
-void p_set_txt (uint8_t l_xpos, uint8_t l_ypos, unsigned char l_text []) __banked
-{
-	if (o_player.yk > 104) hide_sprite (PLAYER_SPRITE_ID);
-	move_win (7, 96);
-	set_win_tiles (l_xpos, l_ypos, 18, 4, l_text);
-	SHOW_WIN;
-	delay (160);
-	waitpad (J_A);
-	p_hide_txt ();
-}
+void p_lvl001 (void) __banked;
+void p_lvl002 (void) __banked;
+void p_lvl003 (void) __banked;
+void p_lvl004 (void) __banked;
+void p_lvl005 (void) __banked;
+void p_lvl006 (void) __banked;
+void p_lvl007 (void) __banked;
+
+#endif

@@ -21,10 +21,15 @@
 #include "environment.h"
 #include "engine.h"
 #include "text.h"
+#include "player.h"
+
+#include "data/text/chest/chesttxt.h"
 
 const uint8_t c_switches_values [2][2] = {
-						{ 0, 0 },
-						{14, 5 }
+						
+						
+						{8, 0}
+
 
 };
 
@@ -58,12 +63,20 @@ void p_environment_use_switch (void) __banked
 	p_environment_changes (TILE_SWITCH_ON);
 	//o_engine.v_tile [0] = TILE_DOOR_OPEN;
 	//set_bkg_tiles (c_switches_values [v_lvl][0] + 1, c_switches_values [v_lvl][1] + 1 , 1, 1, o_engine.v_tile);
-	p_engine_set_tile (c_switches_values [v_lvl][0], c_switches_values [v_lvl][1], TILE_DOOR_OPEN);
+	if (v_lvl == 8) {
+		p_engine_set_tile (c_switches_values [0][0], c_switches_values [0][1], TILE_DOOR_OPEN);
+	}
 }
 
 void p_environment_use_chest (void) __banked
 {
 	p_environment_changes (TILE_OPEN_CHEST);
+
+	if (v_lvl == 1) {
+		o_player.inventory.pickaxe = true;
+		p_player_set_weapon_sprite ();
+		p_set_txt (1, 1, pickaxetxt);
+	}
 }
 
 ///trigger an event 
@@ -155,3 +168,4 @@ void  p_environment_shield (uint8_t l_mk, unsigned char l_txt[]) __banked
 		p_set_txt (1, 1, l_txt);
 	}
 }
+

@@ -15,18 +15,21 @@ echo "compile..."
 #BANK7: Text routines and text data
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/text.o text.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/shieldtxt.o data/text/shields/shieldtxt.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/chesttxt.o data/text/chest/chesttxt.c
 
 #BANK6
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo6 -c -o obj/environment.o environment.c 
 
 #BANK5: level data
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo5 -c -o obj/lvldatmine-entrance.o data/level/lvldatmine-entrance.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo5 -c -o obj/lvldatfirstcourse.o data/level/lvldatfirstcourse.c
 
 #Bank 4: other values
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo4 -c -o obj/values.o values.c
 
-#Bank3: Level mine entrance
+#Bank3: Level mine entrance, first course
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo3 -c -o obj/mine-entrance.o mine-entrance.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo3 -c -o obj/first-course.o first-course.c
 
 #Bank 2: tilesets and spritesets
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/font-79-127.o data/tilesets/font-79-127.c
