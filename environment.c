@@ -151,6 +151,16 @@ void p_environment_collect_big_clock (void) __banked
 	p_environment_clean_item ();
 }
 
+///collect tiny clock and increase dungeontime + 25
+void p_environment_collect_tiny_clock (void) __banked
+{
+	if (o_engine.v_dungeontimer <= o_engine.v_dungeontimer - 25) {
+		p_environment_clean_item ();
+		o_engine.v_dungeontimer += 25;
+	}
+}
+
+///collect items
 void p_environment_collect_item (void) __banked
 {
 	o_engine.v_tile  [1] = p_engine_get_tile (o_player.mk);
@@ -160,6 +170,7 @@ void p_environment_collect_item (void) __banked
 	else if (o_engine.v_tile [1] == TILE_BEER) p_environment_collect_beer ();
 	else if (o_engine.v_tile [1] == TILE_KEY) p_environment_collect_key ();
 	else if (o_engine.v_tile [1] == TILE_BIG_CLOCK) p_environment_collect_big_clock ();
+	else if (o_engine.v_tile [1] == TILE_TINY_CLOCK) p_environment_collect_tiny_clock ();
 }
 
 void  p_environment_shield (uint8_t l_mk, unsigned char l_txt[]) __banked

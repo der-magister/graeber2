@@ -27,6 +27,8 @@
 
 void main (void)
 {
+	uint8_t v_tick = 60;
+
 	p_init_stage1 ();
 
 	//gameloop
@@ -57,8 +59,15 @@ void main (void)
 		}
 
 		++o_engine.v_movetimer;
+		--v_tick;
 
 		if (o_player.v_attacktimer != 255) ++o_player.v_attacktimer;
+
+		if ((v_tick == 0) && (o_engine.v_dungeontimer != 255)) {
+			--o_engine.v_dungeontimer;
+			p_hud_show_dungeontimer ();
+			v_tick = 60;
+		}
 
 		wait_vbl_done ();
 	}

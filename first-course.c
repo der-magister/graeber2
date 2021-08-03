@@ -36,7 +36,6 @@ void p_lvl002 (void) __banked
 	if (o_player.mk == 125) {
 		p_engine_load_map (lvl003, BANK_5, BANK_3);
 		p_engine_change_lvl (3, 16, o_player.yk);
-
 	}
 }
 
@@ -45,7 +44,6 @@ void p_lvl003 (void) __banked
 	if (o_player.mk == 125) {
 		p_engine_load_map (lvl004, BANK_5, BANK_3);
 		p_engine_change_lvl (4, 16, o_player.yk);
-
 	}	
 }
 
@@ -54,7 +52,6 @@ void p_lvl004 (void) __banked
 	if (o_player.mk == 242) {
 		p_engine_load_map (lvl005, BANK_5, BANK_3);
 		p_engine_change_lvl (5, o_player.xk, 24);
-
 	}	
 }
 
@@ -63,7 +60,6 @@ void p_lvl005 (void) __banked
 	if (o_player.mk == 125) {
 		p_engine_load_map (lvl006, BANK_5, BANK_3);
 		p_engine_change_lvl (6, 16, o_player.yk);
-
 	}	
 }
 
@@ -72,7 +68,6 @@ void p_lvl006 (void) __banked
 	if (o_player.mk == 8) {
 		p_engine_load_map (lvl007, BANK_5, BANK_3);
 		p_engine_change_lvl (7, o_player.xk, 128);
-
 	}
 
 }
@@ -84,5 +79,4 @@ void p_lvl007 (void) __banked
 		p_engine_change_lvl (8, o_player.xk, 128);
 
 	}
-
 }

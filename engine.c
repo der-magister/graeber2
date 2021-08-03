@@ -61,13 +61,11 @@ uint8_t p_engine_calc_map (uint8_t l_xk, uint8_t l_yk) __nonbanked
 
 void p_engine_init (void) __nonbanked
 {
-	o_engine.v_movetimer = 0;
+	o_engine.v_movetimer = 0; o_engine.v_dungeontimer = 255;
 }
 
 unsigned char p_engine_get_tile (uint8_t l_mk) __nonbanked
 {
-	//printf ("wert: %u", o_engine.v_leveldata [l_mk]);
-
 	return (o_engine.v_leveldata [l_mk]);
 }
 

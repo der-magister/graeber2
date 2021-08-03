@@ -56,6 +56,14 @@ void p_hud_show_players_mapK (void) __nonbanked
         p_hud_convert_value (((o_player.mk / 10) / 10) % 10, 9, 17, LAYER_BKG);
 }
 
+void p_hud_show_dungeontimer (void) __nonbanked
+{
+        p_hud_convert_value (o_engine.v_dungeontimer % 10, 11, 16, LAYER_BKG);
+        p_hud_convert_value ((o_engine.v_dungeontimer / 10) % 10, 10, 16, LAYER_BKG);
+        p_hud_convert_value (((o_engine.v_dungeontimer / 10) / 10) % 10, 9, 16, LAYER_BKG);
+
+}
+
 void p_hud_show_value (uint8_t l_value) __nonbanked
 {
         p_hud_convert_value (l_value % 10, 3, 17, LAYER_BKG);

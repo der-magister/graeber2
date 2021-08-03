@@ -37,6 +37,4 @@ void p_lvl_select (void) __nonbanked
 	else if (v_lvl == 5) p_lvl005 ();
 	else if (v_lvl == 6) p_lvl006 ();
 	else if (v_lvl == 7) p_lvl007 ();
-
-
 }

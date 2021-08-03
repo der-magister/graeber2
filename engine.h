@@ -27,7 +27,8 @@ struct s_engine_t
 {
 	unsigned char v_leveldata [252]; 	///actual level map data
 	uint8_t v_movetimer;			///timer for player movements
-	unsigned char v_tile [2];               ///tilenumber of an selected tile         
+	unsigned char v_tile [2];               ///tilenumber of an selected tile
+	uint8_t v_dungeontimer;                 ///dungeon timer      
 };
 
 extern struct s_engine_t o_engine;		///"object" engine

@@ -16,6 +16,7 @@ echo "compile..."
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/text.o text.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/shieldtxt.o data/text/shields/shieldtxt.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/chesttxt.o data/text/chest/chesttxt.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/textframe.o data/hud/textframe.c
 
 #BANK6
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo6 -c -o obj/environment.o environment.c 

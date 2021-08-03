@@ -98,6 +98,6 @@ void p_lvl0d (void) __banked
 	else if (o_player.mk == 8) {
 		p_engine_load_map (lvl001, BANK_5, BANK_3);
 		p_engine_change_lvl (1, o_player.xk, 128);
-
+		o_engine.v_dungeontimer = 125;
 	}
 }

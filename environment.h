@@ -40,6 +40,7 @@
 #define TILE_CHEST 11
 #define TILE_OPEN_CHEST 12
 #define TILE_BIG_CLOCK 71
+#define TILE_TINY_CLOCK 17
 
 void p_environment_get_ev (void) __banked;
 void p_environment_collect_item (void) __banked;
