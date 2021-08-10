@@ -12,6 +12,9 @@ date
 
 echo "compile..."
 
+#BANK8: others
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo8 -c -o obj/tinyhud.o data/hud/tinyhud.c
+
 #BANK7: Text routines and text data
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/text.o text.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/shieldtxt.o data/text/shields/shieldtxt.c
@@ -50,7 +53,7 @@ cd obj/
 
 obj=$(ls | grep [.][o])
 
-lcc -Wa-l -Wl-m -Wl-j -Wl-yt0x019 -Wl-yo8 -Wm-yn"graeber2" -o graeber2.gb $obj
+lcc -Wa-l -Wl-m -Wl-j -Wl-yt0x019 -Wl-yo16 -Wm-yn"graeber2" -o graeber2.gb $obj
 
 cd ..
 

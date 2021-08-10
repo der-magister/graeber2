@@ -22,6 +22,7 @@
 #include "engine.h"
 
 #include "data/level/lvldatfirstcourse.h"
+#include "data/level/lvldatmine-entrance.h"
 
 void p_lvl001 (void) __banked
 {
@@ -78,5 +79,13 @@ void p_lvl007 (void) __banked
 		p_engine_load_map (lvl008, BANK_5, BANK_3);
 		p_engine_change_lvl (8, o_player.xk, 128);
 
+	}
+}
+
+void p_lvl008 (void) __banked
+{
+	if (o_player.mk == 8) {
+		p_engine_load_map (lvl0d, BANK_5, BANK_3);
+		p_engine_change_lvl (-1, o_player.xk, 72);	
 	}
 }

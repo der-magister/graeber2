@@ -72,10 +72,18 @@ void p_environment_use_chest (void) __banked
 {
 	p_environment_changes (TILE_OPEN_CHEST);
 
+	//chest with pickaxe 
 	if (v_lvl == 1) {
 		o_player.inventory.pickaxe = true;
 		p_player_set_weapon_sprite ();
 		p_set_txt (1, 1, pickaxetxt);
+	}
+	//chest with 5 crystals
+	else if (v_lvl == 8) {
+		o_player.inventory.crystals += 5;
+		p_player_set_weapon_sprite ();
+		p_set_txt (1, 1, crystals5txt);
+
 	}
 }
 
@@ -148,16 +156,29 @@ void p_environment_collect_key (void) __banked
 ///collect big clock and increase dungeontime + 50
 void p_environment_collect_big_clock (void) __banked
 {
-	p_environment_clean_item ();
+	if (o_engine.v_dungeontimer <= 255 - 50) {
+		p_environment_clean_item ();
+		o_engine.v_dungeontimer += 50;	
+	}
+	else {
+		p_environment_clean_item ();
+		o_engine.v_dungeontimer = 255;	
+	}
+	
 }
 
 ///collect tiny clock and increase dungeontime + 25
 void p_environment_collect_tiny_clock (void) __banked
 {
-	if (o_engine.v_dungeontimer <= o_engine.v_dungeontimer - 25) {
+	if (o_engine.v_dungeontimer <= 255 - 25) {
 		p_environment_clean_item ();
 		o_engine.v_dungeontimer += 25;
 	}
+	else {
+		o_engine.v_dungeontimer = 255;
+		p_environment_clean_item ();
+	}
+
 }
 
 ///collect items

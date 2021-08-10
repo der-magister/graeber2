@@ -22,6 +22,8 @@
 #include "engine.h"
 #include "player.h"
 
+#include "data/hud/tinyhud.h"
+
 void p_hud_convert_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk, uint8_t l_layer) __nonbanked
 { 
         if (l_value == 0) o_engine.v_tile [0] = 91;
@@ -36,16 +38,16 @@ void p_hud_convert_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk, uint8_t l
 
 void p_hud_show_players_xk (void) __nonbanked
 {
-	p_hud_convert_value (o_player.xk % 10, 8, 15, LAYER_BKG);
-        p_hud_convert_value ((o_player.xk / 10) % 10, 7, 15, LAYER_BKG);
-        p_hud_convert_value (((o_player.xk / 10) / 10) % 10, 6, 15, LAYER_BKG);
+	p_hud_convert_value (o_player.xk % 10, 8, 16, LAYER_BKG);
+        p_hud_convert_value ((o_player.xk / 10) % 10, 7, 16, LAYER_BKG);
+        p_hud_convert_value (((o_player.xk / 10) / 10) % 10, 6, 16, LAYER_BKG);
 }
 
 void p_hud_show_players_yk (void) __nonbanked
 {
-        p_hud_convert_value (o_player.yk % 10, 12, 15, LAYER_BKG);
-        p_hud_convert_value ((o_player.yk / 10) % 10, 11, 15, LAYER_BKG);
-        p_hud_convert_value (((o_player.yk / 10) / 10) % 10, 10, 15, LAYER_BKG);
+        p_hud_convert_value (o_player.yk % 10, 12, 16, LAYER_BKG);
+        p_hud_convert_value ((o_player.yk / 10) % 10, 11, 16, LAYER_BKG);
+        p_hud_convert_value (((o_player.yk / 10) / 10) % 10, 10, 16, LAYER_BKG);
 }
 
 ///show the map coordinate of the player on the screen
@@ -56,6 +58,7 @@ void p_hud_show_players_mapK (void) __nonbanked
         p_hud_convert_value (((o_player.mk / 10) / 10) % 10, 9, 17, LAYER_BKG);
 }
 
+///show the dungeon timer
 void p_hud_show_dungeontimer (void) __nonbanked
 {
         p_hud_convert_value (o_engine.v_dungeontimer % 10, 11, 16, LAYER_BKG);
@@ -64,9 +67,21 @@ void p_hud_show_dungeontimer (void) __nonbanked
 
 }
 
-void p_hud_show_value (uint8_t l_value) __nonbanked
+void p_hud_show_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk) __nonbanked
 {
-        p_hud_convert_value (l_value % 10, 3, 17, LAYER_BKG);
-        p_hud_convert_value ((l_value / 10) % 10, 2, 17, LAYER_BKG);
-        p_hud_convert_value (((l_value / 10) / 10) % 10, 1, 17, LAYER_BKG);       
+        p_hud_convert_value (l_value % 10, l_xk, l_yk, LAYER_BKG);
+        p_hud_convert_value ((l_value / 10) % 10, l_xk - 1, l_yk, LAYER_BKG);
+        p_hud_convert_value (((l_value / 10) / 10) % 10, l_xk - 2, l_yk, LAYER_BKG);       
+}
+
+///show timy hud on the game screen
+void p_hud_show_tiny_hud () __nonbanked
+{
+
+        SWITCH_ROM_MBC5 (BANK_8);
+                set_bkg_tiles (1, 15, 18, 3, tinyhud);
+        SWITCH_ROM_MBC5 (BANK_0);
+
+        p_hud_show_value (o_player.lifepoints, 5, 15);
+
 }

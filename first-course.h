@@ -30,5 +30,6 @@ void p_lvl004 (void) __banked;
 void p_lvl005 (void) __banked;
 void p_lvl006 (void) __banked;
 void p_lvl007 (void) __banked;
+void p_lvl008 (void) __banked;
 
 #endif
