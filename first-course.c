@@ -24,6 +24,7 @@
 #include "data/level/lvldatfirstcourse.h"
 #include "data/level/lvldatmine-entrance.h"
 
+///procedure first course room 1
 void p_lvl001 (void) __banked
 {
 	if (o_player.mk == 8) {
@@ -32,6 +33,7 @@ void p_lvl001 (void) __banked
 	}
 } 
 
+///procedure first course room 2
 void p_lvl002 (void) __banked
 {
 	if (o_player.mk == 125) {
@@ -40,6 +42,7 @@ void p_lvl002 (void) __banked
 	}
 }
 
+///procedure first course room 3
 void p_lvl003 (void) __banked
 {
 	if (o_player.mk == 125) {
@@ -48,6 +51,7 @@ void p_lvl003 (void) __banked
 	}	
 }
 
+///procedure first course room 4
 void p_lvl004 (void) __banked
 {
 	if (o_player.mk == 242) {
@@ -56,6 +60,7 @@ void p_lvl004 (void) __banked
 	}	
 }
 
+///procedure first course room 5
 void p_lvl005 (void) __banked
 {
 	if (o_player.mk == 125) {
@@ -64,6 +69,7 @@ void p_lvl005 (void) __banked
 	}	
 }
 
+///procedure first course room 6
 void p_lvl006 (void) __banked
 {
 	if (o_player.mk == 8) {
@@ -73,6 +79,7 @@ void p_lvl006 (void) __banked
 
 }
 
+///procedure first course room 7
 void p_lvl007 (void) __banked
 {
 	if (o_player.mk == 8) {
@@ -82,6 +89,7 @@ void p_lvl007 (void) __banked
 	}
 }
 
+///procedure first course room 8
 void p_lvl008 (void) __banked
 {
 	if (o_player.mk == 8) {

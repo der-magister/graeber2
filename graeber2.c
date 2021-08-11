@@ -37,8 +37,7 @@ void main (void)
 
 		//p_hud_show_value (o_engine.v_movetimer);
 
-		if ((o_engine.v_movetimer == 6) && (o_player.v_attack == false)) 
-		{
+		if ((o_engine.v_movetimer == 6) && (o_player.v_attack == false)) {
 			if ((joypad () & J_UP)) p_player_move_up ();
 			else if ((joypad () & J_DOWN)) p_player_move_down ();
 			else if ((joypad () & J_LEFT)) p_player_move_left ();
@@ -54,7 +53,8 @@ void main (void)
 
 		if (o_player.v_attacktimer == 15) { //p_player_hide_weapon_sprite;
 			move_sprite (PLAYER_WEAPON_SPRITE_ID, 0, 0);
-			o_player.v_attacktimer = 255; o_player.v_attack = false; o_engine.v_movetimer=5; 
+			o_player.v_attacktimer = 255; o_player.v_attack = false; 
+			o_engine.v_movetimer=5; 
 
 		}
 

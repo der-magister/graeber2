@@ -28,8 +28,7 @@ void p_hud_convert_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk, uint8_t l
 { 
         if (l_value == 0) o_engine.v_tile [0] = 91;
   
-        for (v_i = 0x01; v_i != 0x0A; ++v_i)
-        {
+        for (v_i = 0x01; v_i != 0x0A; ++v_i) {
                 if (l_value == v_i) o_engine.v_tile [0] = 0x65 - v_i;
         }
         if (l_layer == LAYER_BKG) set_bkg_tiles (l_xk, l_yk, 1, 1, o_engine.v_tile); 
@@ -75,7 +74,7 @@ void p_hud_show_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk) __nonbanked
 }
 
 ///show timy hud on the game screen
-void p_hud_show_tiny_hud () __nonbanked
+void p_hud_show_tiny_hud (void) __nonbanked
 {
 
         SWITCH_ROM_MBC5 (BANK_8);
@@ -83,5 +82,7 @@ void p_hud_show_tiny_hud () __nonbanked
         SWITCH_ROM_MBC5 (BANK_0);
 
         p_hud_show_value (o_player.lifepoints, 5, 15);
+
+        p_hud_show_
 
 }
