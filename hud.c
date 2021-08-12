@@ -83,6 +83,7 @@ void p_hud_show_tiny_hud (void) __nonbanked
 
         p_hud_show_value (o_player.lifepoints, 5, 15);
 
-        p_hud_show_
+        p_hud_show_value (o_player.inventory.crystals, 15, 15);
+        
 
 }
