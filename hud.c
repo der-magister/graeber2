@@ -35,18 +35,25 @@ void p_hud_convert_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk, uint8_t l
         else if (l_layer == LAYER_WIN) set_win_tiles (l_xk, l_yk, 1, 1, o_engine.v_tile);
 }
 
+void p_hud_show_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk) __nonbanked
+{
+        p_hud_convert_value (l_value % 10, l_xk, l_yk, LAYER_BKG);
+        p_hud_convert_value ((l_value / 10) % 10, l_xk - 1, l_yk, LAYER_BKG);
+        p_hud_convert_value (((l_value / 10) / 10) % 10, l_xk - 2, l_yk, LAYER_BKG);       
+}
+
 void p_hud_show_players_xk (void) __nonbanked
 {
-	p_hud_convert_value (o_player.xk % 10, 8, 16, LAYER_BKG);
-        p_hud_convert_value ((o_player.xk / 10) % 10, 7, 16, LAYER_BKG);
-        p_hud_convert_value (((o_player.xk / 10) / 10) % 10, 6, 16, LAYER_BKG);
+	p_hud_convert_value (o_player.xk % 10, 9, 16, LAYER_BKG);
+        p_hud_convert_value ((o_player.xk / 10) % 10, 8, 16, LAYER_BKG);
+        p_hud_convert_value (((o_player.xk / 10) / 10) % 10, 7, 16, LAYER_BKG);
 }
 
 void p_hud_show_players_yk (void) __nonbanked
 {
-        p_hud_convert_value (o_player.yk % 10, 12, 16, LAYER_BKG);
-        p_hud_convert_value ((o_player.yk / 10) % 10, 11, 16, LAYER_BKG);
-        p_hud_convert_value (((o_player.yk / 10) / 10) % 10, 10, 16, LAYER_BKG);
+        p_hud_convert_value (o_player.yk % 10, 13, 16, LAYER_BKG);
+        p_hud_convert_value ((o_player.yk / 10) % 10, 12, 16, LAYER_BKG);
+        p_hud_convert_value (((o_player.yk / 10) / 10) % 10, 11, 16, LAYER_BKG);
 }
 
 ///show the map coordinate of the player on the screen
@@ -60,17 +67,12 @@ void p_hud_show_players_mapK (void) __nonbanked
 ///show the dungeon timer
 void p_hud_show_dungeontimer (void) __nonbanked
 {
-        p_hud_convert_value (o_engine.v_dungeontimer % 10, 11, 16, LAYER_BKG);
-        p_hud_convert_value ((o_engine.v_dungeontimer / 10) % 10, 10, 16, LAYER_BKG);
-        p_hud_convert_value (((o_engine.v_dungeontimer / 10) / 10) % 10, 9, 16, LAYER_BKG);
+        //p_hud_convert_value (o_engine.v_dungeontimer % 10, 18, 16, LAYER_BKG);
+        //p_hud_convert_value ((o_engine.v_dungeontimer / 10) % 10, 10, 16, LAYER_BKG);
+        //p_hud_convert_value (((o_engine.v_dungeontimer / 10) / 10) % 10, 9, 16, LAYER_BKG);
 
-}
+        p_hud_show_value (o_engine.v_dungeontimer, 18, 17);
 
-void p_hud_show_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk) __nonbanked
-{
-        p_hud_convert_value (l_value % 10, l_xk, l_yk, LAYER_BKG);
-        p_hud_convert_value ((l_value / 10) % 10, l_xk - 1, l_yk, LAYER_BKG);
-        p_hud_convert_value (((l_value / 10) / 10) % 10, l_xk - 2, l_yk, LAYER_BKG);       
 }
 
 ///show timy hud on the game screen
@@ -83,7 +85,8 @@ void p_hud_show_tiny_hud (void) __nonbanked
 
         p_hud_show_value (o_player.lifepoints, 5, 15);
 
-        p_hud_show_value (o_player.inventory.crystals, 15, 15);
-        
+        p_hud_show_value (o_player.inventory.crystals, 18, 15);
+        p_hud_show_value (o_player.inventory.gold, 18, 16);
 
+        p_hud_show_dungeontimer ();
 }

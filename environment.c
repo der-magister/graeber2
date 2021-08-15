@@ -22,6 +22,7 @@
 #include "engine.h"
 #include "text.h"
 #include "player.h"
+#include "hud.h"
 
 #include "data/text/chest/chesttxt.h"
 
@@ -119,6 +120,7 @@ void p_environment_collect_gold (void) __banked
 	if (o_player.inventory.gold != 255) {
 		o_player.inventory.gold += 1;
 		p_environment_clean_item ();
+		p_hud_show_value (o_player.inventory.gold, 18, 16);
 	}
 }
 

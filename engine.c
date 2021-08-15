@@ -31,8 +31,8 @@ struct s_engine_t o_engine;
 void p_engine_loadTileset (void) __nonbanked
 {
 	SWITCH_ROM_MBC5 (BANK_2);
-	set_bkg_data (79, 127, font);
-	set_bkg_data (0, 77, maintiles);
+		set_bkg_data (79, 127, font);
+		set_bkg_data (0, 77, maintiles);
         SWITCH_ROM_MBC5 (BANK_0);
 }
 
@@ -40,7 +40,7 @@ void p_engine_loadTileset (void) __nonbanked
 void p_engine_loadSpriteset (void) __nonbanked
 {
 	SWITCH_ROM_MBC5 (BANK_2);
-	set_sprite_data (0, 127, sprites);
+		set_sprite_data (0, 127, sprites);
 	SWITCH_ROM_MBC5 (BANK_0);
 }
 
@@ -48,7 +48,7 @@ void p_engine_load_map (unsigned char l_lvldat [252], uint8_t l_databank, uint8_
 {
 	SWITCH_ROM_MBC5 (l_databank);
 
-	for (v_i = 0; v_i != 253; ++v_i) o_engine.v_leveldata [v_i] = l_lvldat [v_i];
+		for (v_i = 0; v_i != 253; ++v_i) o_engine.v_leveldata [v_i] = l_lvldat [v_i];
 
 	SWITCH_ROM_MBC5 (l_curbank);
 }

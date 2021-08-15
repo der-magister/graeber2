@@ -23,9 +23,10 @@
 
 #include "globals.h"
 
+void p_hud_show_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk) __nonbanked;
 void p_hud_show_players_mapK (void) __nonbanked;
 
 void p_hud_show_dungeontimer (void) __nonbanked;
-void p_hud_show_tiny_hud () __nonbanked;
+void p_hud_show_tiny_hud (void) __nonbanked;
 
 #endif
