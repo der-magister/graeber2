@@ -20,6 +20,7 @@
 
 #include "engine.h"
 #include "player.h"
+#include "hud.h"
 
 #include "data/tilesets/font-79-127.h"
 #include "data/tilesets/maintiles_77-0.h"
@@ -85,6 +86,7 @@ void p_engine_change_lvl (int8_t l_lvl, uint8_t l_xk, uint8_t l_yk) __nonbanked
         set_bkg_tiles (1, 1, 18, 14, o_engine.v_leveldata);
         p_player_set_sprite_xy (l_xk, l_yk);
         o_engine.v_movetimer = 5;
+        p_hud_show_dungeontimer ();
         SHOW_SPRITES;
         DISPLAY_ON;
 }

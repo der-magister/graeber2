@@ -45,6 +45,7 @@ lcc -Wa-l -Wl-m -Wl-j -c -o obj/globals.o globals.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/engine.o engine.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/hud.o hud.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/player.o player.c
+lcc -Wa-l -Wl-m -Wl-j -c -o obj/items.o items.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/lvlstatus.o lvlstatus.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/init.o init.c
 lcc -Wa-l -Wl-m -Wl-j -Wa-l -Wl-m -Wl-j -c -o obj/graeber2.o graeber2.c

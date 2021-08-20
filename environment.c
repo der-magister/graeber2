@@ -23,6 +23,7 @@
 #include "text.h"
 #include "player.h"
 #include "hud.h"
+#include "items.h"
 
 #include "data/text/chest/chesttxt.h"
 
@@ -78,13 +79,14 @@ void p_environment_use_chest (void) __banked
 		o_player.inventory.pickaxe = true;
 		p_player_set_weapon_sprite ();
 		p_set_txt (1, 1, pickaxetxt);
+		p_items_set_pickaxe_active ();
 	}
 	//chest with 5 crystals
 	else if (v_lvl == 8) {
 		o_player.inventory.crystals += 5;
 		p_player_set_weapon_sprite ();
 		p_set_txt (1, 1, crystals5txt);
-
+		p_hud_show_value (o_player.inventory.crystals, 18, 15);
 	}
 }
 
@@ -130,6 +132,7 @@ void p_environment_collect_crystal (void) __banked
 	if (o_player.inventory.crystals != 255) {
 		o_player.inventory.crystals += 1;
 		p_environment_clean_item ();
+		p_hud_show_value (o_player.inventory.crystals, 18, 15);
 	}
 }
 
@@ -166,6 +169,7 @@ void p_environment_collect_big_clock (void) __banked
 		p_environment_clean_item ();
 		o_engine.v_dungeontimer = 255;	
 	}
+	p_hud_show_dungeontimer ();
 	
 }
 
