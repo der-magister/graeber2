@@ -21,7 +21,7 @@
 #include "globals.h"
 
 //playervariables
-struct s_player o_player;
+struct s_player_t o_player;
 
 ///actual dungeon time
 uint8_t v_i;

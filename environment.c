@@ -79,7 +79,7 @@ void p_environment_use_chest (void) __banked
 		o_player.inventory.pickaxe = true;
 		p_player_set_weapon_sprite ();
 		p_set_txt (1, 1, pickaxetxt);
-		p_items_set_pickaxe_active ();
+		o_pickaxe.v_active = true;
 	}
 	//chest with 5 crystals
 	else if (v_lvl == 8) {
@@ -204,6 +204,8 @@ void  p_environment_shield (uint8_t l_mk, unsigned char l_txt[]) __banked
 {
 	if (l_mk == o_player.mk) {
 		p_set_txt (1, 1, l_txt);
+		waitpad (J_A);
+		p_hide_txt ();
 	}
 }
 

@@ -25,6 +25,6 @@
 #include "globals.h"
 
 void p_set_txt (uint8_t l_xpos, uint8_t l_ypos, unsigned char l_text []) __banked;
-
+void p_hide_txt (void) __banked;
 
 #endif

@@ -23,11 +23,12 @@
 #include "hud.h"
 #include "values.h"
 #include "environment.h"
+#include "items.h"
 
 ///calculate the amor value
 UINT8 p_player_calc_amor (void) __nonbanked
 {
-	static UINT8 l_value;
+	static uint8_t l_value;
 
 	l_value = c_amor_values [0];
 
@@ -91,6 +92,7 @@ void p_player_init_others (void) __nonbanked
 	o_player.walk = true;
 	o_player.v_attacktimer = 255;
 	o_player.v_attack = false;
+	o_player.v_blowcounter = 0;
 }
 
 ///set player sprite graphics
@@ -250,12 +252,18 @@ void p_player_attack (void) __nonbanked
 	if ((o_player.inventory.pickaxe == true) || (o_player.inventory.steel_pickaxe == true)) {
 		p_player_set_weapon_sprite_xk ();
 		o_player.v_attacktimer = 0;
-		//p_environment_get_ev ();
+		p_environment_get_ev ();
+		++o_player.v_blowcounter;
+
+		if (o_player.v_blowcounter == 255) {
+			o_pickaxe.v_status -= 1;  
+		}
+
+
 	}
 	else {
 		o_player.v_attack = false;
 	}
-	p_environment_get_ev ();
 }
 
 /*void p_player_hide_weapon_sprite (void) __nonbanked

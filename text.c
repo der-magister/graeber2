@@ -40,7 +40,5 @@ void p_set_txt (uint8_t l_xpos, uint8_t l_ypos, unsigned char l_text []) __banke
 	move_win (7, 96);
 	set_win_tiles (l_xpos, l_ypos, 18, 4, l_text);
 	SHOW_WIN;
-	delay (160);
-	waitpad (J_A);
-	p_hide_txt ();
+	delay (180);
 }

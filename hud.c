@@ -21,6 +21,7 @@
 #include "hud.h"
 #include "engine.h"
 #include "player.h"
+#include "items.h"
 
 #include "data/hud/tinyhud.h"
 
@@ -69,18 +70,36 @@ void p_hud_show_lifepoints (void) __nonbanked
         p_hud_convert_value (o_player.lifepoints % 10, 3, 15, LAYER_BKG);
 }
 
-///show timy hud on the game screen
-void p_hud_show_tiny_hud (void) __nonbanked
+void p_hud_show_tool_status (void) __nonbanked
 {
+        if (o_pickaxe.v_active == true) {
+                p_hud_convert_value (o_pickaxe.v_status % 10, 3, 17, LAYER_BKG);
+        }
+        else if (o_steel_pickaxe.v_active == true) {
+                p_hud_convert_value (o_steel_pickaxe.v_status % 10, 3, 17, LAYER_BKG);       
+        }
+        else
+        {
+                p_hud_convert_value (0, 3, 17, LAYER_BKG);       
+        }
+}
 
+void p_hud_show_frame (void) __nonbanked
+{
         SWITCH_ROM_MBC5 (BANK_8);
                 set_bkg_tiles (1, 15, 18, 3, tinyhud);
         SWITCH_ROM_MBC5 (BANK_0);
+}
 
+///show tiny hud on the game screen
+void p_hud_show_tiny_hud (void) __nonbanked
+{
         p_hud_show_lifepoints ();
 
         p_hud_show_value (o_player.inventory.crystals, 18, 15);
         p_hud_show_value (o_player.inventory.gold, 18, 16);
+
+        //p_hud_show_tool_status ();
 
         p_hud_show_dungeontimer ();
 }

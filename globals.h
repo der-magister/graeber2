@@ -67,7 +67,7 @@ struct s_inventory {
 };
 
 ///player struct
-struct s_player {
+struct s_player_t {
 	int8_t lifepoints;		///actual lifepoints    
 	int8_t max_lifepoints;		///maximal lifepoints
 	uint8_t amorvalue;		///value of the amor
@@ -79,10 +79,10 @@ struct s_player {
 	bool walk;			///can player move?
 	uint8_t v_attacktimer;		///timer for showing the pickaxe on the screen
 	bool v_attack;
+	uint8_t v_blowcounter;            ///counter for hits with the pickaxe 
 };
 
-extern struct s_player o_player;	///player "object"
-
+extern struct s_player_t o_player;	///player "object"
 
 extern uint8_t v_i;
 extern volatile int8_t v_lvl;

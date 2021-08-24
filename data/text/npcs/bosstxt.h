@@ -18,15 +18,11 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#include "items.h"
+#ifndef _BOSS_TXT_H_
+#define _BOSS_TXT_H_
 
-struct s_tools_t o_pickaxe;
-struct s_tools_t o_steel_pickaxe;
+extern const unsigned char bosstxtA1 [72];
+extern const unsigned char bosstxtA2 [72];
+extern const unsigned char bosstxtA3 [72];
 
-///init
-void p_items_init (void) __nonbanked
-{
-	o_pickaxe.v_status = 5; o_pickaxe.v_max_status = 5;
-
-	o_steel_pickaxe.v_status = 8; o_steel_pickaxe.v_max_status;
-}
+#endif

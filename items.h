@@ -25,13 +25,14 @@
 #include "globals.h"
 
 struct s_tools_t {
-	bool active;
-	int8_t status;
+	bool v_active;
+	int8_t v_status;
+	int8_t v_max_status;
 };
 
 extern struct s_tools_t o_pickaxe;
 extern struct s_tools_t o_steel_pickaxe;
 
-void p_items_set_pickaxe_active (void) __nonbanked;
+void p_items_init (void) __nonbanked;
 
 #endif
