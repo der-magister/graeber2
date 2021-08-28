@@ -45,7 +45,7 @@ UINT8 p_player_calc_amor (void) __nonbanked
 ///init basic stats
 void p_player_init_basic_stats (void) __nonbanked
 {	
-	o_player.lifepoints = 3;
+	o_player.lifepoints = 2;
 	o_player.max_lifepoints = 3;
 	o_player.amorvalue = c_amor_values [0];
 }	

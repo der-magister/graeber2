@@ -26,6 +26,7 @@
 #include "text.h"
 #include "items.h"
 #include "player.h"
+#include "shops.h"
 
 #include "data/level/lvldatmine-entrance.h"
 #include "data/level/lvldatfirstcourse.h"
@@ -39,6 +40,8 @@ void p_lvl0a (void) __banked
 {
 	//shield
 	p_environment_shield (191, shieldhealertxt);
+
+	p_shop_healer ();
 
 	//npcs
 	if ((o_player.mk == 134) || (o_player.mk == 117) ||
