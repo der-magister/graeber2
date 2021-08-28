@@ -247,22 +247,25 @@ void p_player_move_right (void)  __nonbanked
 ///"attack" routine of the player
 void p_player_attack (void) __nonbanked
 {
-	o_player.v_attack = true;
+	if (v_lvl > 0) {
 
-	if ((o_player.inventory.pickaxe == true) || (o_player.inventory.steel_pickaxe == true)) {
-		p_player_set_weapon_sprite_xk ();
-		o_player.v_attacktimer = 0;
-		p_environment_get_ev ();
-		++o_player.v_blowcounter;
+		o_player.v_attack = true;
 
-		if (o_player.v_blowcounter == 255) {
-			o_pickaxe.v_status -= 1;  
+		if ((o_player.inventory.pickaxe == true) || (o_player.inventory.steel_pickaxe == true)) {
+			p_player_set_weapon_sprite_xk ();
+			o_player.v_attacktimer = 0;
+			p_environment_get_ev ();
+			++o_player.v_blowcounter;
+
+			if (o_player.v_blowcounter == 255) {
+				o_pickaxe.v_status -= 1;  
+			}
+
+
 		}
-
-
-	}
-	else {
-		o_player.v_attack = false;
+		else {
+			o_player.v_attack = false;
+		}
 	}
 }
 

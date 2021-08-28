@@ -86,5 +86,7 @@ extern struct s_player_t o_player;	///player "object"
 
 extern uint8_t v_i;
 extern volatile int8_t v_lvl;
+extern uint8_t v_lvlmodi [10];
+extern uint8_t v_lvldat [10];
 
 #endif

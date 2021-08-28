@@ -44,15 +44,19 @@ void p_lvl0a (void) __banked
 	if ((o_player.mk == 134) || (o_player.mk == 117) ||
 	    (o_player.mk == 98)  || (o_player.mk == 115)) 
 	{
-		p_set_txt (1, 1, bosstxtA1);
-		waitpad (J_DOWN);
-		p_set_txt (1, 1, bosstxtA2);
-		waitpad (J_DOWN);
-		p_set_txt (1, 1, bosstxtA3);
-		o_pickaxe.v_active = true;
-		o_player.inventory.pickaxe = true;
-		waitpad (J_A);
-		p_hide_txt ();
+		if (v_lvldat [0] == 0) {
+			p_set_txt (1, 1, bosstxtA1);
+			waitpad (J_DOWN);
+			p_set_txt (1, 1, bosstxtA2);
+			waitpad (J_DOWN);
+			p_set_txt (1, 1, bosstxtA3);
+			o_pickaxe.v_active = true;
+			o_player.inventory.pickaxe = true;
+			waitpad (J_A);
+			p_hide_txt ();
+			v_lvlmodi [0] = 1; v_lvldat [0] = 1;
+			p_player_set_weapon_sprite ();
+		}
 	}
 
 	//lvl changes

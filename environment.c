@@ -35,6 +35,21 @@ const uint8_t c_switches_values [2][2] = {
 
 };
 
+void p_environment_modis (void) __banked
+{
+
+	if (v_lvl == -1) {
+		if (v_lvlmodi [0] == 1) { p_engine_set_tile (8, 0, 14); }
+	}
+}
+
+void p_environment_init (void) __banked
+{
+	for (v_i = 0; v_i != 10; ++v_i) {
+		v_lvlmodi [v_i] = 0;
+	}
+}
+
 ///changes after an event
 void p_environment_changes (unsigned char l_tile) __banked
 {
@@ -88,6 +103,8 @@ void p_environment_use_chest (void) __banked
 		p_set_txt (1, 1, crystals5txt);
 		p_hud_show_value (o_player.inventory.crystals, 18, 15);
 	}
+	waitpad (J_A);
+	p_hide_txt ();
 }
 
 ///trigger an event 

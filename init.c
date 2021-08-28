@@ -19,10 +19,12 @@
 //   Contact: projekte@kabelmail.net
 
 #include "init.h"
+
 #include "engine.h"
 #include "player.h"
 #include "hud.h"
 #include "items.h"
+#include "environment.h"
 
 #include "data/level/lvldatmine-entrance.h"
 
@@ -37,6 +39,7 @@ void p_init_stage1 (void) __nonbanked
 
 	p_engine_init ();
 	p_player_init ();
+	p_environment_init ();
 	p_items_init ();
 
 	p_engine_load_map (lvl0a, BANK_5, BANK_0);
@@ -45,6 +48,8 @@ void p_init_stage1 (void) __nonbanked
 	p_hud_show_frame ();
 	p_hud_show_tiny_hud ();
 
+	for (v_i = 0; v_i != 10; ++v_i) v_lvldat [v_i] = 0;
+
 	//tmp
 	p_player_set_weapon_sprite ();
 	o_engine.v_movetimer = 0;
@@ -52,5 +57,3 @@ void p_init_stage1 (void) __nonbanked
 	v_lvl = -4;
 
 }
-
-
