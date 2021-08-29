@@ -21,8 +21,9 @@
 #include "shops.h"
 
 #include "text.h"
+#include "hud.h"
 
-#include "data/text/npcs/healertxtA1.h"
+#include "data/text/npcs/shoptxt.h"
 
 void p_shop_healer (void) __banked
 {
@@ -32,12 +33,108 @@ void p_shop_healer (void) __banked
 			waitpad (J_A);
 			p_hide_txt ();
 			o_player.lifepoints = o_player.max_lifepoints; 
+			p_hud_show_lifepoints ();
 		}
 	} 
 
 }
 
+///food shop
 void p_shop_food (void) __banked
 {
-	
+	uint8_t l_quit;
+
+	l_quit = false;
+
+	if ((o_player.mk == 165) || (o_player.mk == 148) || (o_player.mk == 167)) {
+		if (o_player.inventory.food != o_player.inventory.max_food) {
+			p_set_txt (1, 1, shopfoodtxtA1);
+
+			while (l_quit == false) {
+				if (joypad () & J_A) { l_quit = true; }
+				else if (joypad () & J_DOWN) {
+					if (o_player.inventory.gold > 0) {
+
+						++o_player.inventory.food;
+						--o_player.inventory.gold;
+						p_set_txt (1, 1, shopfoodtxtA2);
+						p_hud_show_food ();	
+					}
+					else {
+						p_set_txt (1, 1, nogoldtxt);
+					}
+					delay (200);
+					waitpad (J_A);
+					l_quit = true;
+				}
+			}
+			p_hide_txt ();
+		}
+	}
+}
+
+///pub
+void p_shop_beer (void) __banked
+{
+	uint8_t l_quit;
+
+	l_quit = false;
+
+	if ((o_player.mk == 184) || (o_player.mk == 167)) {
+		if (o_player.inventory.beer != o_player.inventory.max_beer) {
+			p_set_txt (1, 1, shopbeertxtA1);
+
+			while (l_quit == false) {
+				if (joypad () & J_A) { l_quit = true; }
+				else if (joypad () & J_DOWN) {
+					if (o_player.inventory.gold > 3) {
+
+						++o_player.inventory.beer;
+						o_player.inventory.gold -= 3;
+						p_set_txt (1, 1, shopbeertxtA2);	
+					}
+					else {
+						p_set_txt (1, 1, nogoldtxt);
+					}
+					delay (200);
+					waitpad (J_A);
+					l_quit = true;
+				}
+			}
+			p_hide_txt ();
+		}
+	}
+}
+
+///whetstone
+void p_shop_whetstone (void) __banked
+{
+	uint8_t l_quit;
+
+	l_quit = false;
+
+	if ((o_player.mk == 194) || (o_player.mk == 175)) {
+		if (o_player.inventory.whetstone != o_player.inventory.max_whetstone) {
+			p_set_txt (1, 1, shopwhetstonetxtA1);
+
+			while (l_quit == false) {
+				if (joypad () & J_A) { l_quit = true; }
+				else if (joypad () & J_DOWN) {
+					if (o_player.inventory.gold > 8) {
+
+						++o_player.inventory.whetstone;
+						o_player.inventory.gold -= 8;
+						p_set_txt (1, 1, shopwhetstonetxtA2);	
+					}
+					else {
+						p_set_txt (1, 1, nogoldtxt);
+					}
+					delay (200);
+					waitpad (J_A);
+					l_quit = true;
+				}
+			}
+			p_hide_txt ();
+		}
+	}
 }

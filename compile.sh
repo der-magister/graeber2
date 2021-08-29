@@ -21,7 +21,7 @@ lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/shieldtxt.o data/text/shields/shieldtxt.
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/chesttxt.o data/text/chest/chesttxt.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/textframe.o data/hud/textframe.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/bosstxt.o data/text/npcs/bosstxt.c 
-lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/healertxtA1.o data/text/npcs/healertxtA1.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/shoptxt.o data/text/npcs/shoptxt.c
 
 #BANK6
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo6 -c -o obj/environment.o environment.c 

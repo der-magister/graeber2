@@ -79,8 +79,8 @@ void p_player_init_inventory (void) __nonbanked
 
 	o_player.inventory.bombs = 0;
 	o_player.inventory.max_bombs = 3;
-	o_player.inventory.oil = 0;
-	o_player.inventory.max_oil = 5;
+	o_player.inventory.whetstone = 0;
+	o_player.inventory.max_whetstone = 5;
 }
 
 ///init other player values

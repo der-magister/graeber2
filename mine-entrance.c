@@ -81,6 +81,9 @@ void p_lvl0a (void) __banked
 ///procedure for lvl0b
 void p_lvl0b (void) __banked
 {       
+	//npcs
+	p_shop_food ();
+
 	//shields
 	p_environment_shield (133, shieldfoodtxt);
 	p_environment_shield (123, shieldbombstxt);
@@ -95,6 +98,10 @@ void p_lvl0b (void) __banked
 ///procedure for lvl0c
 void p_lvl0c (void) __banked
 {
+	//npc
+	p_shop_beer ();
+	p_shop_whetstone ();
+
 	//shields
 	p_environment_shield (136, forgetxt);
 	p_environment_shield (110, shieldpubtxt);

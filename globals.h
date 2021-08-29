@@ -62,8 +62,8 @@ struct s_inventory {
 	uint8_t bombs;                  ///actual bombs
 	uint8_t max_bombs;              ///maximal bombs
 
-	uint8_t oil;                    ///actual oil
-	uint8_t max_oil;                ///maximal oil  
+	uint8_t whetstone;              ///actual whetstone
+	uint8_t max_whetstone;          ///maximal whetstone
 };
 
 ///player struct

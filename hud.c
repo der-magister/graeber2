@@ -70,6 +70,11 @@ void p_hud_show_lifepoints (void) __nonbanked
         p_hud_convert_value (o_player.lifepoints % 10, 3, 15, LAYER_BKG);
 }
 
+void p_hud_show_food (void) __nonbanked
+{
+        p_hud_convert_value (o_player.inventory.food % 10, 3, 16, LAYER_BKG);
+}
+
 void p_hud_show_tool_status (void) __nonbanked
 {
         if (o_pickaxe.v_active == true) {
@@ -95,6 +100,7 @@ void p_hud_show_frame (void) __nonbanked
 void p_hud_show_tiny_hud (void) __nonbanked
 {
         p_hud_show_lifepoints ();
+        p_hud_show_food ();
 
         p_hud_show_value (o_player.inventory.crystals, 18, 15);
         p_hud_show_value (o_player.inventory.gold, 18, 16);

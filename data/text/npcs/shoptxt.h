@@ -18,18 +18,16 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#ifndef _HUD_H_
-#define _HUD_H_
+#ifndef _SHOPTXT_H_
+#define _SHOPTXT_H_
 
-#include "globals.h"
-
-void p_hud_show_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk) __nonbanked;
-void p_hud_show_players_mapK (void) __nonbanked;
-void p_hud_show_food (void) __nonbanked;
-void p_hud_show_lifepoints () __nonbanked;
-
-void p_hud_show_dungeontimer (void) __nonbanked;
-void p_hud_show_frame (void) __nonbanked;
-void p_hud_show_tiny_hud (void) __nonbanked;
+extern const unsigned char healertxtA1 [72];
+extern const unsigned char shopfoodtxtA1 [72];
+extern const unsigned char shopfoodtxtA2 [72];
+extern const unsigned char nogoldtxt [72];
+extern const unsigned char shopbeertxtA1 [72];
+extern const unsigned char shopbeertxtA2 [72];
+extern const unsigned char shopwhetstonetxtA1 [72];
+extern const unsigned char shopwhetstonetxtA2 [72];
 
 #endif
