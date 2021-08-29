@@ -36,6 +36,8 @@ void p_hide_txt (void) __banked
 void p_set_txt (uint8_t l_xpos, uint8_t l_ypos, unsigned char l_text []) __banked
 {
 	if (o_player.yk > 104) hide_sprite (PLAYER_SPRITE_ID);
+	p_player_hide_weapon_sprite ();
+
 	set_win_tiles (0, 0, 20, 6, textframe);
 	move_win (7, 96);
 	set_win_tiles (l_xpos, l_ypos, 18, 4, l_text);

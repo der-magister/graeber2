@@ -21,7 +21,7 @@
 #ifndef _CHESTTXT_H_
 #define _CHESTTXT_H_
 
-extern const unsigned char pickaxetxt [72];
+extern const unsigned char foodtxt [72];
 extern const unsigned char crystals5txt [72];
 
 #endif

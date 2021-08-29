@@ -92,7 +92,7 @@ void p_player_init_others (void) __nonbanked
 	o_player.walk = true;
 	o_player.v_attacktimer = 255;
 	o_player.v_attack = false;
-	o_player.v_blowcounter = 0;
+	o_player.v_hitcounter = 0;
 }
 
 ///set player sprite graphics
@@ -140,6 +140,11 @@ void p_player_set_weapon_sprite_xk (void) __nonbanked
 	else if (o_player.direction == RIGHT) {
 		move_sprite (PLAYER_WEAPON_SPRITE_ID, o_player.xk + 8, o_player.yk);	
 	}
+}
+
+void p_player_hide_weapon_sprite (void) __nonbanked
+{
+	move_sprite (PLAYER_WEAPON_SPRITE_ID, 0, 0);
 }
 
 ///player main init
@@ -255,9 +260,9 @@ void p_player_attack (void) __nonbanked
 			p_player_set_weapon_sprite_xk ();
 			o_player.v_attacktimer = 0;
 			p_environment_get_ev ();
-			++o_player.v_blowcounter;
+			++o_player.v_hitcounter;
 
-			if (o_player.v_blowcounter == 255) {
+			if (o_player.v_hitcounter == 255) {
 				o_pickaxe.v_status -= 1;  
 			}
 

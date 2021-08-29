@@ -36,7 +36,6 @@ void p_shop_healer (void) __banked
 			p_hud_show_lifepoints ();
 		}
 	} 
-
 }
 
 ///food shop

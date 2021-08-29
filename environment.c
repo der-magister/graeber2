@@ -91,10 +91,12 @@ void p_environment_use_chest (void) __banked
 
 	//chest with pickaxe 
 	if (v_lvl == 1) {
-		o_player.inventory.pickaxe = true;
-		p_player_set_weapon_sprite ();
-		p_set_txt (1, 1, pickaxetxt);
-		o_pickaxe.v_active = true;
+
+		if (o_player.inventory.food != o_player.inventory.max_food) {
+			++o_player.inventory.food;
+			p_set_txt (1, 1, foodtxt);
+			p_hud_show_food ();
+		}
 	}
 	//chest with 5 crystals
 	else if (v_lvl == 8) {
