@@ -93,6 +93,7 @@ void p_player_init_others (void) __nonbanked
 	o_player.v_attacktimer = 255;
 	o_player.v_attack = false;
 	o_player.v_hitcounter = 0;
+	o_player.v_steps = 0;
 }
 
 ///set player sprite graphics
@@ -197,6 +198,7 @@ void p_player_move_up (void) __nonbanked
 			o_player.yk -= 8; 
 			p_player_set_sprite_xy (o_player.xk, o_player.yk);
 			p_environment_collect_item ();
+			++o_player.v_steps;
 		}
 	}
 }
@@ -213,6 +215,8 @@ void p_player_move_down (void) __nonbanked
 			o_player.yk += 8; 
 			p_player_set_sprite_xy (o_player.xk, o_player.yk);
 			p_environment_collect_item ();
+			++o_player.v_steps;
+			if (o_player.v_steps == 255)
 		}
 	}
 }
@@ -229,6 +233,7 @@ void p_player_move_left (void)  __nonbanked
 			o_player.xk -= 8; o_player.direction = LEFT;
 			p_player_set_sprite_xy (o_player.xk, o_player.yk);
 			p_environment_collect_item ();
+			++o_player.v_steps;
 		}
 	}
 }
@@ -245,6 +250,7 @@ void p_player_move_right (void)  __nonbanked
 			o_player.xk += 8;
 			p_player_set_sprite_xy (o_player.xk, o_player.yk);
 			p_environment_collect_item ();
+			++o_player.v_steps;
 		}
 	}
 }

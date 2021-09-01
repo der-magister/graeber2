@@ -42,19 +42,16 @@ void main (void)
 
 			o_engine.v_movetimer = 0;
 		}
-
 		if ((joypad () & J_A) && (o_player.v_attack == false)) {
 			p_lvl_select ();
 			p_player_attack ();
 		}
-
 		if (o_player.v_attacktimer == 15) { //p_player_hide_weapon_sprite;
 			move_sprite (PLAYER_WEAPON_SPRITE_ID, 0, 0);
 			o_player.v_attacktimer = 255; o_player.v_attack = false; 
 			o_engine.v_movetimer=5; 
 
 		}
-
 		++o_engine.v_movetimer;
 		--v_tick;
 
@@ -65,9 +62,6 @@ void main (void)
 			p_hud_show_dungeontimer ();
 			v_tick = 60;
 		}
-
 		wait_vbl_done ();
 	}
-
 }
-
