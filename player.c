@@ -199,6 +199,7 @@ void p_player_move_up (void) __nonbanked
 			p_player_set_sprite_xy (o_player.xk, o_player.yk);
 			p_environment_collect_item ();
 			++o_player.v_steps;
+			p_items_use_proviant ();
 		}
 	}
 }
@@ -216,7 +217,7 @@ void p_player_move_down (void) __nonbanked
 			p_player_set_sprite_xy (o_player.xk, o_player.yk);
 			p_environment_collect_item ();
 			++o_player.v_steps;
-			if (o_player.v_steps == 255)
+			p_items_use_proviant ();
 		}
 	}
 }
@@ -234,6 +235,7 @@ void p_player_move_left (void)  __nonbanked
 			p_player_set_sprite_xy (o_player.xk, o_player.yk);
 			p_environment_collect_item ();
 			++o_player.v_steps;
+			p_items_use_proviant ();
 		}
 	}
 }
@@ -251,6 +253,7 @@ void p_player_move_right (void)  __nonbanked
 			p_player_set_sprite_xy (o_player.xk, o_player.yk);
 			p_environment_collect_item ();
 			++o_player.v_steps;
+			p_items_use_proviant ();
 		}
 	}
 }
@@ -260,22 +263,23 @@ void p_player_attack (void) __nonbanked
 {
 	if (v_lvl > 0) {
 
-		o_player.v_attack = true;
+		if (o_pickaxe.v_status != 0) {
 
-		if ((o_player.inventory.pickaxe == true) || (o_player.inventory.steel_pickaxe == true)) {
-			p_player_set_weapon_sprite_xk ();
-			o_player.v_attacktimer = 0;
-			p_environment_get_ev ();
-			++o_player.v_hitcounter;
+			o_player.v_attack = true;
 
-			if (o_player.v_hitcounter == 255) {
-				o_pickaxe.v_status -= 1;  
+			if ((o_player.inventory.pickaxe == true) || (o_player.inventory.steel_pickaxe == true)) {
+				p_player_set_weapon_sprite_xk ();
+				o_player.v_attacktimer = 0;
+				p_environment_get_ev ();
+				++o_player.v_hitcounter;
+
+				p_items_use_tool ();
+
+
 			}
-
-
-		}
-		else {
-			o_player.v_attack = false;
+			else {
+				o_player.v_attack = false;
+			}
 		}
 	}
 }

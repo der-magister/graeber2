@@ -21,6 +21,7 @@
 #include "items.h"
 
 #include "player.h"
+#include "hud.h"
 
 struct s_tools_t o_pickaxe;
 struct s_tools_t o_steel_pickaxe;
@@ -30,7 +31,7 @@ void p_items_init (void) __nonbanked
 {
 	o_pickaxe.v_status = 5; o_pickaxe.v_max_status = 5;
 
-	o_steel_pickaxe.v_status = 8; o_steel_pickaxe.v_max_status;
+	o_steel_pickaxe.v_status = 8; o_steel_pickaxe.v_max_status = 8;
 }
 
 void p_items_use_proviant (void) __nonbanked
@@ -38,13 +39,27 @@ void p_items_use_proviant (void) __nonbanked
 	if (o_player.v_steps == 255) {
 		o_player.v_steps = 0;
 
-		--o_player.inventory.food;
-
-		if (o_player.inventory.food == 0) {
+		if (o_player.inventory.food != 0) {
+			--o_player.inventory.food;
+			p_hud_show_food ();
+		}
+		else if (o_player.inventory.food == 0) {
 			--o_player.lifepoints;
-
+			p_hud_show_lifepoints ();
 		}
 
 
+	}
+}
+
+void p_items_use_tool (void) __nonbanked
+{
+	if (o_player.v_hitcounter == 80) {
+		o_player.v_hitcounter = 0;
+
+		if (o_pickaxe.v_status != 0) {
+			--o_pickaxe.v_status;
+			p_hud_show_tool_status ();
+		}
 	}
 }

@@ -23,8 +23,7 @@
 #include "hud.h"
 #include "environment.h"
 
-#include "data/tilesets/font-79-127.h"
-#include "data/tilesets/maintiles_77-0.h"
+#include "data/tilesets/alltiles.h"
 #include "data/spritesets/spriteset.h"
 
 struct s_engine_t o_engine;
@@ -33,8 +32,8 @@ struct s_engine_t o_engine;
 void p_engine_loadTileset (void) __nonbanked
 {
 	SWITCH_ROM_MBC5 (BANK_2);
-		set_bkg_data (79, 127, font);
-		set_bkg_data (0, 77, maintiles);
+		//set_bkg_data (79, 127, font);
+		set_bkg_data (0, 127, alltiles);
         SWITCH_ROM_MBC5 (BANK_0);
 }
 

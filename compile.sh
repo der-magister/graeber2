@@ -39,8 +39,9 @@ lcc -Wa-l -Wl-m -Wl-j -Wf-bo3 -c -o obj/mine-entrance.o mine-entrance.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo3 -c -o obj/first-course.o first-course.c
 
 #Bank 2: tilesets and spritesets
-lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/font-79-127.o data/tilesets/font-79-127.c
-lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/maintiles.o data/tilesets/maintiles_77-0.c
+#lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/font-79-127.o data/tilesets/font-79-127.c
+#lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/maintiles.o data/tilesets/maintiles_77-0.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/alltiles.o data/tilesets/alltiles.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/spriteset.o data/spritesets/spriteset.c
 
 #Bank 0: main

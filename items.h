@@ -35,5 +35,6 @@ extern struct s_tools_t o_steel_pickaxe;
 
 void p_items_init (void) __nonbanked;
 void p_items_use_proviant (void) __nonbanked;
+void p_items_use_tool (void) __nonbanked;
 
 #endif

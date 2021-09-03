@@ -59,6 +59,7 @@ void p_lvl0a (void) __banked
 			p_hide_txt ();
 			v_lvlmodi [0] = 1; v_lvldat [0] = 1;
 			p_player_set_weapon_sprite ();
+			p_hud_show_tool_status ();
 		}
 	}
 

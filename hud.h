@@ -31,5 +31,6 @@ void p_hud_show_lifepoints () __nonbanked;
 void p_hud_show_dungeontimer (void) __nonbanked;
 void p_hud_show_frame (void) __nonbanked;
 void p_hud_show_tiny_hud (void) __nonbanked;
+void p_hud_show_tool_status (void) __nonbanked;
 
 #endif
