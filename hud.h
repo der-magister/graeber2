@@ -23,14 +23,16 @@
 
 #include "globals.h"
 
-void p_hud_show_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk) __nonbanked;
-void p_hud_show_players_mapK (void) __nonbanked;
-void p_hud_show_food (void) __nonbanked;
-void p_hud_show_lifepoints () __nonbanked;
+void p_hud_show_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk) __banked;
+void p_hud_show_players_mapK (void) __banked;
 
-void p_hud_show_dungeontimer (void) __nonbanked;
-void p_hud_show_frame (void) __nonbanked;
-void p_hud_show_tiny_hud (void) __nonbanked;
-void p_hud_show_tool_status (void) __nonbanked;
+void p_hud_show_food (void) __banked;
+void p_hud_show_lifepoints () __banked;
+
+void p_hud_show_dungeontimer (void) __banked;
+void p_hud_show_frame (void) __banked;
+void p_hud_show_tiny_hud (void) __banked;
+void p_hud_show_tool_status (void) __banked;
+void p_hud_show_clean_course (void) __banked;
 
 #endif

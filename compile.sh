@@ -12,8 +12,10 @@ date
 
 echo "compile..."
 
-#BANK8: others
+#BANK8: hud
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo8 -c -o obj/course-clean.o data/hud/course-clean.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo8 -c -o obj/tinyhud.o data/hud/tinyhud.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo8 -c -o obj/hud.o hud.c
 
 #BANK7: Text routines and text data
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/text.o text.c
@@ -47,11 +49,11 @@ lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/spriteset.o data/spritesets/spriteset.c
 #Bank 0: main
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/globals.o globals.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/engine.o engine.c
-lcc -Wa-l -Wl-m -Wl-j -c -o obj/hud.o hud.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/player.o player.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/items.o items.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/lvlstatus.o lvlstatus.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/init.o init.c
+
 lcc -Wa-l -Wl-m -Wl-j -Wa-l -Wl-m -Wl-j -c -o obj/graeber2.o graeber2.c
 
 cd obj/

@@ -20,9 +20,11 @@
 
 #include "first-course.h"
 #include "engine.h"
+#include "hud.h"
 
 #include "data/level/lvldatfirstcourse.h"
 #include "data/level/lvldatmine-entrance.h"
+
 
 ///procedure first course room 1
 void p_lvl001 (void) __banked
@@ -93,7 +95,9 @@ void p_lvl007 (void) __banked
 void p_lvl008 (void) __banked
 {
 	if (o_player.mk == 8) {
+		p_hud_show_clean_course ();
 		p_engine_load_map (lvl0d, BANK_5, BANK_3);
-		p_engine_change_lvl (-1, o_player.xk, 72);	
+		p_engine_change_lvl (-1, o_player.xk, 72);
+
 	}
 }

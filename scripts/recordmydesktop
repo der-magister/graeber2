@@ -1,0 +1,7 @@
+#!/bin/bash
+
+windowid=$(wmctrl -lp | grep graeber2.gb | cut -d ' ' -f1)
+echo "capture windows $windowid"
+recordmydesktop --on-the-fly-encoding y--compress-cache --no-frame --no-wm-check --no-shared --no-cursor --no-sound --workdir=/tmp --windowid=$windowid 
+
+exit 0

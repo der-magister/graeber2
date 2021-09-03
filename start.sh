@@ -1,2 +1,2 @@
-bgb.sh graeber2.gb
+bgb graeber2.gb
 
