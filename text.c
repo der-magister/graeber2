@@ -33,7 +33,7 @@ void p_hide_txt (void) __banked
 }
 
 ///display passed text on the win layer
-void p_set_txt (uint8_t l_xpos, uint8_t l_ypos, unsigned char l_text []) __banked
+void p_set_txt (uint8_t l_xpos, uint8_t l_ypos, unsigned char l_text [72]) __banked
 {
 	if (o_player.yk > 104) hide_sprite (PLAYER_SPRITE_ID);
 	p_player_hide_weapon_sprite ();
@@ -43,4 +43,10 @@ void p_set_txt (uint8_t l_xpos, uint8_t l_ypos, unsigned char l_text []) __banke
 	set_win_tiles (l_xpos, l_ypos, 18, 4, l_text);
 	SHOW_WIN;
 	delay (180);
+}
+
+///show actual location on the screen
+void p_show_location (unsigned char l_text []) __banked
+{
+	set_bkg_tiles (1, 0, 18, 1, l_text);
 }

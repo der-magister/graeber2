@@ -34,5 +34,6 @@ void p_hud_show_frame (void) __banked;
 void p_hud_show_tiny_hud (void) __banked;
 void p_hud_show_tool_status (void) __banked;
 void p_hud_show_clean_course (void) __banked;
+void p_hud_show_big_frame (void) __banked;
 
 #endif

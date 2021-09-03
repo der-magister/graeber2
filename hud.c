@@ -26,6 +26,7 @@
 
 #include "data/hud/tinyhud.h"
 #include "data/hud/course-clean.h"
+#include "data/hud/frame.h"
 
 void p_hud_convert_value (uint8_t l_value, uint8_t l_xk, uint8_t l_yk, uint8_t l_layer) __banked
 { 
@@ -95,6 +96,11 @@ void p_hud_show_frame (void) __banked
 {
 
         set_bkg_tiles (1, 15, 18, 3, tinyhud);
+}
+
+void p_hud_show_big_frame (void) __banked
+{
+        set_bkg_tiles (0, 0, 20, 18, frame);   
 }
 
 void p_hud_show_clean_course (void) __banked

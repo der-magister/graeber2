@@ -25,8 +25,10 @@
 #include "hud.h"
 #include "items.h"
 #include "environment.h"
+#include "text.h"
 
 #include "data/level/lvldatmine-entrance.h"
+#include "data/text/locations/mine-entrancetxt.h"
 
 void p_init_stage1 (void) __nonbanked
 {
@@ -42,13 +44,17 @@ void p_init_stage1 (void) __nonbanked
 	p_environment_init ();
 	p_items_init ();
 
-	p_engine_load_map (lvl0a, BANK_5, BANK_0);
-	set_bkg_tiles (1, 1, 18, 14, o_engine.v_leveldata);
-
+	
+	p_hud_show_big_frame ();
 	p_hud_show_frame ();
 	p_hud_show_tiny_hud ();
 
+	p_engine_load_map (lvl0a, BANK_5, BANK_0);
+	set_bkg_tiles (1, 1, 18, 14, o_engine.v_leveldata);
+
 	for (v_i = 0; v_i != 10; ++v_i) v_lvldat [v_i] = 0;
+
+	p_show_location (mineentrancetxt);
 
 	//tmp
 	p_player_set_weapon_sprite ();
