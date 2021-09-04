@@ -34,6 +34,7 @@
 #include "data/text/shields/shieldtxt.h"
 #include "data/text/npcs/bosstxt.h"
 
+#include "data/text/locations/locations.h"
 
 ///procedure for lvl0a
 void p_lvl0a (void) __banked
@@ -136,5 +137,6 @@ void p_lvl0d (void) __banked
 		p_engine_change_lvl (1, o_player.xk, 128);
 		o_engine.v_dungeontimer = 125;
 		p_hud_show_dungeontimer ();
+		p_show_location (firstcoursetxt);
 	}
 }

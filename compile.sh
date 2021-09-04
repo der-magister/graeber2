@@ -25,7 +25,7 @@ lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/chesttxt.o data/text/chest/chesttxt.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/textframe.o data/hud/textframe.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/bosstxt.o data/text/npcs/bosstxt.c 
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/shoptxt.o data/text/npcs/shoptxt.c
-lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/mine-entrancetxt.o data/text/locations/mine-entrancetxt.c
+lcc -Wa-l -Wl-m -Wl-j -Wf-bo7 -c -o obj/locations.o data/text/locations/locations.c
 
 #BANK6
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo6 -c -o obj/environment.o environment.c 

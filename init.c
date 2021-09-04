@@ -28,7 +28,7 @@
 #include "text.h"
 
 #include "data/level/lvldatmine-entrance.h"
-#include "data/text/locations/mine-entrancetxt.h"
+#include "data/text/locations/locations.h"
 
 void p_init_stage1 (void) __nonbanked
 {
