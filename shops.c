@@ -86,7 +86,7 @@ void p_shop_beer (void) __banked
 			while (l_quit == false) {
 				if (joypad () & J_A) { l_quit = true; }
 				else if (joypad () & J_DOWN) {
-					if (o_player.inventory.gold > 3) {
+					if (o_player.inventory.gold >= 3) {
 
 						++o_player.inventory.beer;
 						o_player.inventory.gold -= 3;
@@ -119,7 +119,7 @@ void p_shop_whetstone (void) __banked
 			while (l_quit == false) {
 				if (joypad () & J_A) { l_quit = true; }
 				else if (joypad () & J_DOWN) {
-					if (o_player.inventory.gold > 8) {
+					if (o_player.inventory.gold >= 8) {
 
 						++o_player.inventory.whetstone;
 						o_player.inventory.gold -= 8;
