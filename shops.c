@@ -137,3 +137,36 @@ void p_shop_whetstone (void) __banked
 		}
 	}
 }
+
+///bomb shop
+void p_shop_bombs (void) __banked
+{
+	uint8_t l_quit;
+
+	l_quit = false;
+
+	if ((o_player.mk == 174) || (o_player.mk == 193)) {
+		if (o_player.inventory.bombs != o_player.inventory.max_bombs) {
+			p_set_txt (1, 1, shopbombxtA1);
+
+			while (l_quit == false) {
+				if (joypad () & J_A) { l_quit = true; }
+				else if (joypad () & J_DOWN) {
+					if (o_player.inventory.gold >= 10) {
+
+						++o_player.inventory.bombs;
+						o_player.inventory.gold -= 10;
+						p_set_txt (1, 1, shopbombtxtA2);	
+					}
+					else {
+						p_set_txt (1, 1, nogoldtxt);
+					}
+					delay (200);
+					waitpad (J_A);
+					l_quit = true;
+				}
+			}
+			p_hide_txt ();
+		}
+	}
+}

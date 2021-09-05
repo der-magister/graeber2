@@ -85,6 +85,7 @@ void p_lvl0b (void) __banked
 {       
 	//npcs
 	p_shop_food ();
+	p_shop_bombs ();
 
 	//shields
 	p_environment_shield (133, shieldfoodtxt);

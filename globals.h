@@ -79,8 +79,9 @@ struct s_player_t {
 	bool walk;			///can player move?
 	uint8_t v_attacktimer;		///timer for showing the pickaxe on the screen
 	bool v_attack;
-	uint8_t v_hitcounter;          ///counter for hits with the pickaxe
+	uint8_t v_hitcounter;           ///counter for hits with the pickaxe
 	uint8_t v_steps;                ///counter for player steps
+	uint8_t v_active_item;          ///selected item
 };
 
 extern struct s_player_t o_player;	///player "object"

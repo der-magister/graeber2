@@ -27,5 +27,6 @@ void p_shop_healer (void) __banked;
 void p_shop_food (void) __banked;
 void p_shop_beer (void) __banked;
 void p_shop_whetstone (void) __banked;
+void p_shop_bombs (void) __banked;
 
 #endif

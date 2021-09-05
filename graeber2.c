@@ -24,6 +24,7 @@
 #include "engine.h"
 #include "lvlstatus.h"
 #include "hud.h"
+#include "items.h"
 
 void main (void)
 {
@@ -46,6 +47,11 @@ void main (void)
 			p_lvl_select ();
 			p_player_attack ();
 		}
+		if ((joypad () & J_SELECT) && (o_player.v_attack == false)) {
+			p_items_select ();
+		}
+
+
 		if (o_player.v_attacktimer == 15) { //p_player_hide_weapon_sprite;
 			move_sprite (PLAYER_WEAPON_SPRITE_ID, 0, 0);
 			o_player.v_attacktimer = 255; o_player.v_attack = false; 

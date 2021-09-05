@@ -29,5 +29,7 @@ extern const unsigned char shopbeertxtA1 [72];
 extern const unsigned char shopbeertxtA2 [72];
 extern const unsigned char shopwhetstonetxtA1 [72];
 extern const unsigned char shopwhetstonetxtA2 [72];
+extern const unsigned char shopbombxtA1 [72];
+extern const unsigned char shopbombtxtA2 [72];
 
 #endif

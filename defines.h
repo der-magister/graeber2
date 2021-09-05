@@ -32,3 +32,4 @@
 #define true TRUE
 #define LAYER_BKG 0
 #define LAYER_WIN 1
+#define TILE_CLEAN 127

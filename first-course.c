@@ -21,10 +21,12 @@
 #include "first-course.h"
 #include "engine.h"
 #include "hud.h"
+#include "text.h"
 
 #include "data/level/lvldatfirstcourse.h"
 #include "data/level/lvldatmine-entrance.h"
 
+#include "data/text/locations/locations.h"
 
 ///procedure first course room 1
 void p_lvl001 (void) __banked
@@ -98,6 +100,6 @@ void p_lvl008 (void) __banked
 		p_hud_show_clean_course ();
 		p_engine_load_map (lvl0d, BANK_5, BANK_3);
 		p_engine_change_lvl (-1, o_player.xk, 72);
-
+		p_show_location (mineentrancetxt);
 	}
 }

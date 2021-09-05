@@ -18,10 +18,19 @@
 //
 //   Contact: projekte@kabelmail.net
 
+#define TILE_BEER 75
+#define TILE_WHETSTONE 39
+#define TILE_BOMB 73
+
+#define BEER 1
+#define WHETSTONE 2
+#define BOMB 3
+
 #include "items.h"
 
 #include "player.h"
 #include "hud.h"
+#include "engine.h"
 
 struct s_tools_t o_pickaxe;
 struct s_tools_t o_steel_pickaxe;
@@ -62,4 +71,28 @@ void p_items_use_tool (void) __nonbanked
 			p_hud_show_tool_status ();
 		}
 	}
+}
+
+void p_items_select (void) __nonbanked
+{
+	if (o_player.v_active_item == 0) {
+		p_engine_set_tile (8, 14, 41);
+		if (o_player.inventory.beer != 0) p_engine_set_tile (8, 14, TILE_BEER);
+		o_player.v_active_item = BEER;
+	}
+	else if (o_player.v_active_item == BEER) {
+		p_engine_set_tile (8, 14, 40);
+		if (o_player.inventory.whetstone != 0) p_engine_set_tile (8, 14, TILE_WHETSTONE);
+		o_player.v_active_item = WHETSTONE;
+	}
+	else if (o_player.v_active_item == WHETSTONE) {
+		p_engine_set_tile (8, 14, 42);
+		if (o_player.inventory.bombs != 0) p_engine_set_tile (8, 14, TILE_BOMB);
+		o_player.v_active_item = BOMB;
+	}
+	else if (o_player.v_active_item == BOMB) {
+		p_engine_set_tile (8, 14, TILE_CLEAN);
+		o_player.v_active_item = 0;	
+	}
+	delay (200);
 }

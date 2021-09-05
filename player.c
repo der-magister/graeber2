@@ -48,6 +48,7 @@ void p_player_init_basic_stats (void) __nonbanked
 	o_player.lifepoints = 2;
 	o_player.max_lifepoints = 3;
 	o_player.amorvalue = c_amor_values [0];
+	o_player.v_active_item = 0;
 }	
 
 ///init inventory
@@ -55,7 +56,7 @@ void p_player_init_inventory (void) __nonbanked
 {
 	o_player.inventory.food = 1;
 	o_player.inventory.max_food = 6;
-	o_player.inventory.gold = 0;
+	o_player.inventory.gold = 30;
 	o_player.inventory.max_gold = 255;
 	o_player.inventory.crystals = 0;
 	o_player.inventory.max_crystals = 255;
