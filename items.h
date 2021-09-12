@@ -37,5 +37,6 @@ void p_items_init (void) __nonbanked;
 void p_items_use_proviant (void) __nonbanked;
 void p_items_use_tool (void) __nonbanked;
 void p_items_select (void) __nonbanked;
+void p_items_use (void) __nonbanked;
 
 #endif

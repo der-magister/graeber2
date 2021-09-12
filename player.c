@@ -25,23 +25,6 @@
 #include "environment.h"
 #include "items.h"
 
-///calculate the amor value
-UINT8 p_player_calc_amor (void) __nonbanked
-{
-	static uint8_t l_value;
-
-	l_value = c_amor_values [0];
-
-	if (o_player.inventory.workwear == true) l_value = c_amor_values [1];
-        else if (o_player.inventory.tabard == true) l_value = c_amor_values [2];
-        else if (o_player.inventory.leather_amor == true) l_value = c_amor_values [3];
-
-        if (o_player.inventory.helmet == true) l_value += c_amor_values [4];
-        else if (o_player.inventory.helmet_with_kandle == true) l_value += c_amor_values [4];
-
-        return (l_value);
-}
-
 ///init basic stats
 void p_player_init_basic_stats (void) __nonbanked
 {	
@@ -56,32 +39,26 @@ void p_player_init_inventory (void) __nonbanked
 {
 	o_player.inventory.food = 1;
 	o_player.inventory.max_food = 6;
-	o_player.inventory.gold = 30;
+	o_player.inventory.gold = 0;
 	o_player.inventory.max_gold = 255;
 	o_player.inventory.crystals = 0;
 	o_player.inventory.max_crystals = 255;
 	o_player.inventory.beer = 0;
-	o_player.inventory.max_beer = 2;
-	o_player.inventory.v_keys = 0;
-	o_player.inventory.v_max_keys = 5;
+	o_player.inventory.max_beer = 0;
+	o_player.inventory.v_keys = false;
 	
 	o_player.inventory.pickaxe = false;
 	o_player.inventory.steel_pickaxe = false;
 	o_player.inventory.workwear = false;
 	o_player.inventory.tabard = false;
-	o_player.inventory.leather_amor = false;
-	o_player.inventory.helmet = false;
-	o_player.inventory.helmet_with_kandle = false;
-	o_player.inventory.glove = false;
 
 	o_player.inventory.barrel = false;
-	o_player.inventory.bread_can = false;
-	o_player.inventory.oil_canister = false;
+	o_player.inventory.bomb_bag = false;
 
 	o_player.inventory.bombs = 0;
-	o_player.inventory.max_bombs = 3;
+	o_player.inventory.max_bombs = 0;
 	o_player.inventory.whetstone = 0;
-	o_player.inventory.max_whetstone = 5;
+	o_player.inventory.max_whetstone = 3;
 }
 
 ///init other player values
@@ -190,6 +167,8 @@ bool p_player_collision_check (void) __nonbanked
 ///player move to up
 void p_player_move_up (void) __nonbanked
 {
+	o_player.v_move = true;
+
 	if (o_player.yk != 24) {
 		o_player.direction = UP;
 
@@ -208,6 +187,8 @@ void p_player_move_up (void) __nonbanked
 ///player move to down
 void p_player_move_down (void) __nonbanked
 {
+	o_player.v_move = true;
+
 	if (o_player.yk != 128) {
 		o_player.direction = DOWN;
 
@@ -219,6 +200,7 @@ void p_player_move_down (void) __nonbanked
 			p_environment_collect_item ();
 			++o_player.v_steps;
 			p_items_use_proviant ();
+			o_player.v_move = false;
 		}
 	}
 }
@@ -226,6 +208,8 @@ void p_player_move_down (void) __nonbanked
 ///player move to left
 void p_player_move_left (void)  __nonbanked
 {
+	o_player.v_move = true;
+
 	if (o_player.xk != 16) {
 		o_player.direction = LEFT;
 
@@ -237,6 +221,7 @@ void p_player_move_left (void)  __nonbanked
 			p_environment_collect_item ();
 			++o_player.v_steps;
 			p_items_use_proviant ();
+			o_player.v_move = false;
 		}
 	}
 }
@@ -244,6 +229,8 @@ void p_player_move_left (void)  __nonbanked
 ///player move to right
 void p_player_move_right (void)  __nonbanked
 {
+	o_player.v_move = true;
+
 	if (o_player.xk != 152) {
 		o_player.direction = RIGHT;
 
@@ -255,6 +242,7 @@ void p_player_move_right (void)  __nonbanked
 			p_environment_collect_item ();
 			++o_player.v_steps;
 			p_items_use_proviant ();
+			o_player.v_move = false;
 		}
 	}
 }

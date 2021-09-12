@@ -57,7 +57,9 @@ void p_shop_food (void) __banked
 						++o_player.inventory.food;
 						--o_player.inventory.gold;
 						p_set_txt (1, 1, shopfoodtxtA2);
-						p_hud_show_food ();	
+						p_hud_show_food ();
+						p_hud_show_value (o_player.inventory.gold, 18, 16);
+	
 					}
 					else {
 						p_set_txt (1, 1, nogoldtxt);
@@ -67,8 +69,13 @@ void p_shop_food (void) __banked
 					l_quit = true;
 				}
 			}
-			p_hide_txt ();
 		}
+		else {
+			p_set_txt (1, 1, cantbuy);
+			delay (200);
+			waitpad (J_A);
+		}
+		p_hide_txt ();
 	}
 }
 
@@ -90,7 +97,9 @@ void p_shop_beer (void) __banked
 
 						++o_player.inventory.beer;
 						o_player.inventory.gold -= 3;
-						p_set_txt (1, 1, shopbeertxtA2);	
+						p_set_txt (1, 1, shopbeertxtA2);
+						p_hud_show_value (o_player.inventory.gold, 18, 16);
+	
 					}
 					else {
 						p_set_txt (1, 1, nogoldtxt);
@@ -100,8 +109,13 @@ void p_shop_beer (void) __banked
 					l_quit = true;
 				}
 			}
-			p_hide_txt ();
 		}
+		else {
+			p_set_txt (1, 1, cantbuy);
+			delay (200);
+			waitpad (J_A);
+		}
+		p_hide_txt ();
 	}
 }
 
@@ -123,7 +137,9 @@ void p_shop_whetstone (void) __banked
 
 						++o_player.inventory.whetstone;
 						o_player.inventory.gold -= 8;
-						p_set_txt (1, 1, shopwhetstonetxtA2);	
+						p_set_txt (1, 1, shopwhetstonetxtA2);
+						p_hud_show_value (o_player.inventory.gold, 18, 16);
+	
 					}
 					else {
 						p_set_txt (1, 1, nogoldtxt);
@@ -133,8 +149,13 @@ void p_shop_whetstone (void) __banked
 					l_quit = true;
 				}
 			}
-			p_hide_txt ();
 		}
+		else {
+			p_set_txt (1, 1, cantbuy);
+			delay (200);
+			waitpad (J_A);
+		}
+		p_hide_txt ();
 	}
 }
 
@@ -156,7 +177,9 @@ void p_shop_bombs (void) __banked
 
 						++o_player.inventory.bombs;
 						o_player.inventory.gold -= 10;
-						p_set_txt (1, 1, shopbombtxtA2);	
+						p_set_txt (1, 1, shopbombtxtA2);
+						p_hud_show_value (o_player.inventory.gold, 18, 16);
+	
 					}
 					else {
 						p_set_txt (1, 1, nogoldtxt);
@@ -166,7 +189,12 @@ void p_shop_bombs (void) __banked
 					l_quit = true;
 				}
 			}
-			p_hide_txt ();
 		}
+		else {
+			p_set_txt (1, 1, cantbuy);
+			delay (200);
+			waitpad (J_A);
+		}
+		p_hide_txt ();
 	}
 }

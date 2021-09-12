@@ -18,35 +18,35 @@
 //
 //   Contact: projekte@kabelmail.net
 
-#ifndef _ENVIRONMENT_H_
-#define _ENVIRONMENT_H_
+#ifndef _ENEMY_H_
+#define _ENEMY_H_
+
+#define ENEMY_SPRITE_ID1 5
+#define ENEMY_SPRITE_ID2 6
+#define ENEMY_SPRITE_ID3 7
 
 #include "globals.h"
 
-#define TILE_PATH 1
-#define TILE_SAND 2
-#define TILE_STONE 3
-#define TILE_STONE_PHASE2 4
-#define TILE_BLACK_STONE 5
-#define TILE_BLACK_STONE_PHASE1 6
-#define TILE_BLACK_STONE_PHASE2 7
-#define TILE_GOLD 74
-#define TILE_CRYSTAL 70 
-#define TILE_BEER 75
-#define TILE_SWITCH_OFF 15
-#define TILE_SWITCH_ON 16
-#define TILE_DOOR_OPEN 9
-#define TILE_KEY 72
-#define TILE_CHEST 11
-#define TILE_OPEN_CHEST 12
-#define TILE_BIG_CLOCK 71
-#define TILE_TINY_CLOCK 17
-#define TILE_BLACK_CLOCK 43
+struct s_enemy_t {
+	uint8_t v_xk;
+	uint8_t v_yk;
+	uint8_t v_mk;
+	uint8_t v_direction;
+	uint8_t v_lifepoints;
+	uint8_t v_damage;
+	uint8_t v_sprite;
+	bool v_walk;
+};
 
-void p_environment_init (void) __banked;
-void p_environment_modis (void) __banked;
-void p_environment_get_ev (void) __banked;
-void p_environment_collect_item (void) __banked;
-void p_environment_shield (uint8_t l_mk, unsigned char l_txt[]) __banked;
+extern uint8_t v_enemy_timer;
+
+extern struct s_enemy_t o_enemy [3];
+
+void p_enemy_init (void) __nonbanked;
+void p_enemy_set (uint8_t l_nr, uint8_t l_xk, uint8_t l_yk, uint8_t l_lp, uint8_t l_dmg, uint8_t l_direction, uint8_t l_sprite) __nonbanked;
+void p_enemy_move_horizontal (void) __nonbanked;
+void p_enemy_move_vertical (void) __nonbanked;
+void p_enemy_disabled (void) __nonbanked;
+void p_enemy_player_collision (void) __nonbanked;
 
 #endif

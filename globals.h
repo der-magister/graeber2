@@ -43,22 +43,16 @@ struct s_inventory {
 	uint8_t max_crystals;           ///maximal crystals  
 	uint8_t beer;                   ///actual beer
 	uint8_t max_beer;               ///maximal beer
-	uint8_t v_keys;                  ///acutal keys
-	uint8_t v_max_keys;              ///maximal keys
+	bool v_keys;                  	///player have a key?
 
 	bool pickaxe;                   ///have player the pickaxe - true = yes, false = no
 	bool steel_pickaxe;          	///have player the steel pickaxe - true = yes, false = no
 	bool workwear;               	///have player the workwear - true = yes, false = no
 	bool tabard;                 	///have player the tabard - true = yes, false = no
-	bool leather_amor;           	///have player the leather_amor - true = yes, false = no
-	bool helmet;                 	///have player the helmet - true = yes, false = no
-	bool helmet_with_kandle; 	///have player the helmet with kandle - true = yes, false = no
-	bool glove;                  	///have player the glove - true = yes, false = no
 
 	bool barrel;                 	///have player the barrel - true = yes, false = no
-	bool bread_can;			///have player the bread can - true = yes, false = no
-	bool oil_canister;           	///have player the oil canister - true = yes, false = no 
-
+	bool bomb_bag;			///have player the bomb bag - true = yes, false = no
+	
 	uint8_t bombs;                  ///actual bombs
 	uint8_t max_bombs;              ///maximal bombs
 
@@ -76,17 +70,21 @@ struct s_player_t {
 	uint8_t yk;                     ///YK-coordinate on the screen
 	uint8_t mk;			///map-coordinates
 	uint8_t direction;		///movement direction 
-	bool walk;			///can player move?
+	bool walk;			///can player move? collision
 	uint8_t v_attacktimer;		///timer for showing the pickaxe on the screen
 	bool v_attack;
 	uint8_t v_hitcounter;           ///counter for hits with the pickaxe
 	uint8_t v_steps;                ///counter for player steps
 	uint8_t v_active_item;          ///selected item
+	bool v_move;                    ///player actual moves?
 };
 
 extern struct s_player_t o_player;	///player "object"
 
-extern uint8_t v_i;
+extern volatile uint8_t v_i;
+extern volatile uint8_t v_j;
+extern volatile uint8_t v_a;
+extern volatile uint8_t v_k;
 extern volatile int8_t v_lvl;
 extern uint8_t v_lvlmodi [10];
 extern uint8_t v_lvldat [10];

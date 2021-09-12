@@ -27,6 +27,7 @@
 #include "items.h"
 #include "player.h"
 #include "shops.h"
+#include "lvlstatus.h"
 
 #include "data/level/lvldatmine-entrance.h"
 #include "data/level/lvldatfirstcourse.h"

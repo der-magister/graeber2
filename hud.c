@@ -23,6 +23,7 @@
 #include "engine.h"
 #include "player.h"
 #include "items.h"
+#include "enemy.h"
 
 #include "data/hud/tinyhud.h"
 #include "data/hud/course-clean.h"
@@ -105,6 +106,7 @@ void p_hud_show_big_frame (void) __banked
 
 void p_hud_show_clean_course (void) __banked
 {
+        p_enemy_disabled ();
         set_bkg_tiles (2, 3, 16, 10, courseclean);
         p_hud_show_value (o_player.inventory.crystals, 8, 5);
         p_hud_show_value (o_player.inventory.gold, 15, 5);

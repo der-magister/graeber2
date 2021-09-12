@@ -24,6 +24,7 @@
 #include "globals.h"
 
 extern const uint8_t c_amor_values [5];
-extern const unsigned char c_collision_values_player [20];
+extern const unsigned char c_collision_values_player [22];
+extern const unsigned char c_collision_values_enemy [22];
 
 #endif

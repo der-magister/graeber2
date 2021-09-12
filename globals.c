@@ -24,7 +24,11 @@
 struct s_player_t o_player;
 
 ///actual dungeon time
-uint8_t v_i;
+volatile uint8_t v_i;
+volatile uint8_t v_j;
+volatile uint8_t v_a;
+volatile uint8_t v_k;
 volatile int8_t v_lvl;				///actual level
 uint8_t v_lvlmodi [10];
 uint8_t v_lvldat [10];
+

@@ -43,8 +43,6 @@ lcc -Wa-l -Wl-m -Wl-j -Wf-bo3 -c -o obj/mine-entrance.o mine-entrance.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo3 -c -o obj/first-course.o first-course.c
 
 #Bank 2: tilesets and spritesets
-#lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/font-79-127.o data/tilesets/font-79-127.c
-#lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/maintiles.o data/tilesets/maintiles_77-0.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/alltiles.o data/tilesets/alltiles.c
 lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/spriteset.o data/spritesets/spriteset.c
 
@@ -52,6 +50,7 @@ lcc -Wa-l -Wl-m -Wl-j -Wf-bo2 -c -o obj/spriteset.o data/spritesets/spriteset.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/globals.o globals.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/engine.o engine.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/player.o player.c
+lcc -Wa-l -Wl-m -Wl-j -c -o obj/enemy.o enemy.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/items.o items.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/lvlstatus.o lvlstatus.c
 lcc -Wa-l -Wl-m -Wl-j -c -o obj/init.o init.c

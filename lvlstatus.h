@@ -24,6 +24,7 @@
 #include "globals.h"
 
 void p_lvl_select (void) __nonbanked;
+void p_lvl_enemy (void) __nonbanked;
 
 
 #endif

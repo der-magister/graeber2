@@ -28,6 +28,7 @@ void p_player_move_up (void) __nonbanked;
 void p_player_move_down (void) __nonbanked;
 void p_player_move_left (void) __nonbanked;
 void p_player_move_right (void) __nonbanked;
+void p_player_set_sprite_nr (uint8_t l_nr) __nonbanked;
 void p_player_set_weapon_sprite (void) __nonbanked;
 void p_player_attack (void) __nonbanked;
 //void p_player_hide_weapon_sprite (void) __nonbanked;

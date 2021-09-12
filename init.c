@@ -26,6 +26,7 @@
 #include "items.h"
 #include "environment.h"
 #include "text.h"
+#include "enemy.h"
 
 #include "data/level/lvldatmine-entrance.h"
 #include "data/text/locations/locations.h"
@@ -43,8 +44,8 @@ void p_init_stage1 (void) __nonbanked
 	p_player_init ();
 	p_environment_init ();
 	p_items_init ();
+	p_enemy_init ();
 
-	
 	p_hud_show_big_frame ();
 	p_hud_show_frame ();
 	p_hud_show_tiny_hud ();
@@ -61,5 +62,4 @@ void p_init_stage1 (void) __nonbanked
 	o_engine.v_movetimer = 0;
 
 	v_lvl = -4;
-
 }

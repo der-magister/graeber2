@@ -25,6 +25,7 @@
 #include "lvlstatus.h"
 #include "hud.h"
 #include "items.h"
+#include "enemy.h"
 
 void main (void)
 {
@@ -35,6 +36,15 @@ void main (void)
 	//gameloop
 	while (1)
 	{
+		if (v_enemy_timer == 30) {
+			p_enemy_move_horizontal ();
+			p_enemy_move_vertical ();
+			v_enemy_timer = 0;
+			p_enemy_player_collision ();
+
+
+		}
+
 		if ((o_engine.v_movetimer == 6) && (o_player.v_attack == false)) {
 			if ((joypad () & J_UP)) p_player_move_up ();
 			else if ((joypad () & J_DOWN)) p_player_move_down ();
@@ -50,7 +60,9 @@ void main (void)
 		if ((joypad () & J_SELECT) && (o_player.v_attack == false)) {
 			p_items_select ();
 		}
-
+		if ((joypad () & J_B) && (o_player.v_attack == false)) {
+			p_items_use ();
+		}
 
 		if (o_player.v_attacktimer == 15) { //p_player_hide_weapon_sprite;
 			move_sprite (PLAYER_WEAPON_SPRITE_ID, 0, 0);
@@ -62,12 +74,15 @@ void main (void)
 		--v_tick;
 
 		if (o_player.v_attacktimer != 255) ++o_player.v_attacktimer;
+		if (v_enemy_timer != 255) ++v_enemy_timer;
 
 		if ((v_tick == 0) && (o_engine.v_dungeontimer != 255)) {
 			--o_engine.v_dungeontimer;
 			p_hud_show_dungeontimer ();
 			v_tick = 60;
 		}
+
+				
 		wait_vbl_done ();
 	}
 }

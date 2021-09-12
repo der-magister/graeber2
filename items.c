@@ -43,6 +43,7 @@ void p_items_init (void) __nonbanked
 	o_steel_pickaxe.v_status = 8; o_steel_pickaxe.v_max_status = 8;
 }
 
+///use food
 void p_items_use_proviant (void) __nonbanked
 {
 	if (o_player.v_steps == 255) {
@@ -61,6 +62,7 @@ void p_items_use_proviant (void) __nonbanked
 	}
 }
 
+///
 void p_items_use_tool (void) __nonbanked
 {
 	if (o_player.v_hitcounter == 80) {
@@ -73,6 +75,40 @@ void p_items_use_tool (void) __nonbanked
 	}
 }
 
+///use whetstone
+void p_items_use_whetstone (void) __nonbanked
+{
+	if ((o_player.inventory.whetstone != 0) && (o_pickaxe.v_status != o_pickaxe.v_max_status)) {
+		--o_player.inventory.whetstone;
+		o_pickaxe.v_status = o_pickaxe.v_max_status;
+		p_hud_show_tool_status ();
+		if (o_player.inventory.whetstone == 0) p_engine_set_tile (8, 14, 40); 
+	}
+}
+
+///use beer
+void p_items_use_beer (void) __nonbanked
+{
+	if (o_player.lifepoints <= o_player.max_lifepoints - 3) {
+		o_player.lifepoints += 3;
+	}
+	else {
+		o_player.lifepoints = o_player.max_lifepoints;
+	}
+	p_hud_show_lifepoints ();
+	--o_player.inventory.beer;
+	if (o_player.inventory.beer == 0) p_engine_set_tile (8, 14, 41);
+}
+
+///use items
+void p_items_use (void) __nonbanked
+{
+	if (o_player.v_active_item == WHETSTONE) p_items_use_whetstone ();
+	else if (o_player.v_active_item == BEER) p_items_use_beer ();
+
+}
+
+///select an items
 void p_items_select (void) __nonbanked
 {
 	if (o_player.v_active_item == 0) {

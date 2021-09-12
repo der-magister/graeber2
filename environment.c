@@ -89,13 +89,15 @@ void p_environment_use_chest (void) __banked
 {
 	p_environment_changes (TILE_OPEN_CHEST);
 
-	//chest with pickaxe 
+	//chest with food
 	if (v_lvl == 1) {
 
 		if (o_player.inventory.food != o_player.inventory.max_food) {
 			++o_player.inventory.food;
+			o_player.v_steps = 0;
 			p_set_txt (1, 1, foodtxt);
 			p_hud_show_food ();
+
 		}
 	}
 	//chest with 5 crystals
@@ -165,16 +167,15 @@ void p_environment_collect_beer (void) __banked
 	else {
 		o_player.lifepoints = o_player.max_lifepoints;
 	}
+	p_hud_show_lifepoints ();
 	p_environment_clean_item ();
 }
 
 ///collect key
 void p_environment_collect_key (void) __banked
 {
-	if (o_player.inventory.v_keys != o_player.inventory.v_max_keys) {
-		o_player.inventory.v_keys += 1;
-		p_environment_clean_item ();
-	}	
+	o_player.inventory.v_keys = true;
+	p_environment_clean_item ();	
 }
 
 ///collect big clock and increase dungeontime + 50
@@ -203,7 +204,16 @@ void p_environment_collect_tiny_clock (void) __banked
 		o_engine.v_dungeontimer = 255;
 		p_environment_clean_item ();
 	}
+	p_hud_show_dungeontimer ();
 
+}
+
+///collect black clock and decrease dungeontime - 15
+void p_environment_collect_black_clock (void) __banked
+{
+	o_engine.v_dungeontimer -= 15;
+	p_environment_clean_item ();
+	p_hud_show_dungeontimer ();
 }
 
 ///collect items
@@ -217,6 +227,7 @@ void p_environment_collect_item (void) __banked
 	else if (o_engine.v_tile [1] == TILE_KEY) p_environment_collect_key ();
 	else if (o_engine.v_tile [1] == TILE_BIG_CLOCK) p_environment_collect_big_clock ();
 	else if (o_engine.v_tile [1] == TILE_TINY_CLOCK) p_environment_collect_tiny_clock ();
+	else if (o_engine.v_tile [1] == TILE_BLACK_CLOCK) p_environment_collect_black_clock ();
 }
 
 void  p_environment_shield (uint8_t l_mk, unsigned char l_txt[]) __banked
